@@ -3,7 +3,7 @@
 <html lang="en">
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Mapie_Clf_Multi_class</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>MapieClf_Tutorial</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <style type="text/css">
     pre { line-height: 125%; }
 td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
@@ -7524,9 +7524,9 @@ a.anchor-link {
 <li><strong>Mô hình áp dụng</strong>: Cho cả phân loại nhị phân (Binary) và phân loại đa nhãn (Multi class)</li>
 </ul>
 <h3 id="B.-B%E1%BB%98-D%E1%BB%AE-LI%E1%BB%86U-TH%E1%BB%B0C-H%C3%80NH"><strong>B. BỘ DỮ LIỆU THỰC HÀNH</strong><a class="anchor-link" href="#B.-B%E1%BB%98-D%E1%BB%AE-LI%E1%BB%86U-TH%E1%BB%B0C-H%C3%80NH">¶</a></h3><ul>
-<li>Notebook này như 1 quick-guide</li>
-<li>Tác giả TỰ MÔ PHỎNG bộ dữ liệu, để anh em có thể tự chạy lại code nhanh</li>
-<li>Tự thay số để hiểu cách kết quả thay đổi như nào</li>
+<li>Notebook này như 1 quick-guide for understanding</li>
+<li>Tác giả TỰ MÔ PHỎNG bộ dữ liệu, để mọi người có thể tự chạy lại code nhanh</li>
+<li>Tự thay số để hiểu cách kết quả thay đổi như thế nào</li>
 </ul>
 <h3 id="C.-N%E1%BB%98I-DUNG-CH%C3%8DNH"><strong>C. NỘI DUNG CHÍNH</strong><a class="anchor-link" href="#C.-N%E1%BB%98I-DUNG-CH%C3%8DNH">¶</a></h3><ul>
 <li><h5 id="THI%E1%BA%BET-L%E1%BA%ACP-D%E1%BB%B0-%C3%81N"><strong>THIẾT LẬP DỰ ÁN</strong><a class="anchor-link" href="#THI%E1%BA%BET-L%E1%BA%ACP-D%E1%BB%B0-%C3%81N">¶</a></h5><ul>
@@ -7545,7 +7545,7 @@ a.anchor-link {
 </ul>
 </li>
 <li><h5 id="MAPIE-CLF-UNDERSTANDING"><strong>MAPIE CLF UNDERSTANDING</strong><a class="anchor-link" href="#MAPIE-CLF-UNDERSTANDING">¶</a></h5><ul>
-<li>Thông tin</li>
+<li>Thuật toán cắt ngưỡng linh hoạt</li>
 <li>Fit model</li>
 <li>Prediction set</li>
 <li>Phân tích &amp; Kết luận</li>
@@ -7588,7 +7588,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [66]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># pip install numpy                                  </span>
@@ -7609,7 +7609,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [67]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span> 
@@ -7652,7 +7652,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [68]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.colors</span><span class="w"> </span><span class="kn">import</span> <span class="n">LinearSegmentedColormap</span>
@@ -7719,7 +7719,7 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="1.0:-KH%C3%94NG-C%E1%BA%A6N-QUAN-T%C3%82M,-KHUY%E1%BA%BEN-C%C3%81O-SKIP-TO%C3%80N-B%E1%BB%98-PH%E1%BA%A6N-1"><strong>1.0: KHÔNG CẦN QUAN TÂM, KHUYẾN CÁO SKIP TOÀN BỘ PHẦN 1</strong><a class="anchor-link" href="#1.0:-KH%C3%94NG-C%E1%BA%A6N-QUAN-T%C3%82M,-KHUY%E1%BA%BEN-C%C3%81O-SKIP-TO%C3%80N-B%E1%BB%98-PH%E1%BA%A6N-1">¶</a></h2>
+<h2 id="1.0:-KH%C3%94NG-C%E1%BA%A6N-QUAN-T%C3%82M"><strong>1.0: KHÔNG CẦN QUAN TÂM</strong><a class="anchor-link" href="#1.0:-KH%C3%94NG-C%E1%BA%A6N-QUAN-T%C3%82M">¶</a></h2>
 </div>
 </div>
 </div>
@@ -7730,10 +7730,7 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="1.1:-SKIP-%C4%90%E1%BA%BEN-%C4%90%C3%82U-??"><strong>1.1: SKIP ĐẾN ĐÂU ??</strong><a class="anchor-link" href="#1.1:-SKIP-%C4%90%E1%BA%BEN-%C4%90%C3%82U-??">¶</a></h2><ul>
-<li><strong>SKIP THẲNG ĐẾN ĐẦU PHẦN 2: MÔ HÌNH PHÂN LOẠI</strong></li>
-<li><strong>CÓ ĐIỀU CẦN LƯU Ý Ở BƯỚC TRAIN TEST SPLIT</strong></li>
-</ul>
+<h2 id="1.1:-SKIP-TH%E1%BA%B2NG-%C4%90%E1%BB%82N-PH%E1%BA%A6N-2:-M%C3%94-H%C3%8CNH-PH%C3%82N-LO%E1%BA%A0I"><strong>1.1: SKIP THẲNG ĐỂN PHẦN 2: MÔ HÌNH PHÂN LOẠI</strong><a class="anchor-link" href="#1.1:-SKIP-TH%E1%BA%B2NG-%C4%90%E1%BB%82N-PH%E1%BA%A6N-2:-M%C3%94-H%C3%8CNH-PH%C3%82N-LO%E1%BA%A0I">¶</a></h2>
 </div>
 </div>
 </div>
@@ -7746,7 +7743,7 @@ a.anchor-link {
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="1.2:-M%C3%94-PH%E1%BB%8ENG-B%E1%BB%98-D%E1%BB%AE-LI%E1%BB%86U"><strong>1.2: MÔ PHỎNG BỘ DỮ LIỆU</strong><a class="anchor-link" href="#1.2:-M%C3%94-PH%E1%BB%8ENG-B%E1%BB%98-D%E1%BB%AE-LI%E1%BB%86U">¶</a></h2><ul>
 <li><strong>Ý TƯỞNG:</strong><ul>
-<li>Ngữ cảnh: Thời điểm cần làm Demo, tác giả không tìm được bộ dữ liệu KPI từ các nguồn web phổ thông, tự nghĩ ra cách mô phỏng dùng "tạm" này</li>
+<li>Ngữ cảnh: Thời điểm cần làm Demo, tác giả không tìm được bộ dữ liệu KPI từ các nguồn web phổ thông, tự nghĩ ra cách mô phỏng "dùng tạm" này</li>
 <li>Cách thức: Tác giả khởi tạo bộ dữ liệu bằng phân phối ngẫu nhiên, tạo nhiễu sai số, kết hợp tương quan nhỏ giữa một số biến tạo sự hợp lý gần với thực tế</li>
 </ul>
 </li>
@@ -7759,7 +7756,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [69]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Các tỉ lệ thuận nghịch chỉ để làm cho dữ liệu gần với thực tế hơn tránh Mâu thuẫn cơ bản, tuy nhiên cần tạo NHIỄU cho mọi biến để tạo Sai số thực tế ngược lại (tạo Mâu thuẫn nhỏ hơn tạo sự ngẫu nhiên)</span>
@@ -7788,7 +7785,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [70]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Số lượng nhân viên (số quan sát)</span>
@@ -7896,7 +7893,7 @@ a.anchor-link {
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[70]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[5]:</div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
 <div>
 <style scoped="">
@@ -8054,7 +8051,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [71]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Biểu đồ Phân phối</span>
@@ -8092,7 +8089,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [72]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Biểu đồ Ma trận tương quan</span>
@@ -8130,12 +8127,12 @@ a.anchor-link {
 <h2 id="1.4:-M%C3%94-PH%E1%BB%8ENG-C%E1%BB%98T-Y-TARGET---NH%C3%83N-C%E1%BA%A6N-D%E1%BB%B0-B%C3%81O:-PERFORMANCE_RATING"><strong>1.4: MÔ PHỎNG CỘT Y TARGET - NHÃN CẦN DỰ BÁO: PERFORMANCE_RATING</strong><a class="anchor-link" href="#1.4:-M%C3%94-PH%E1%BB%8ENG-C%E1%BB%98T-Y-TARGET---NH%C3%83N-C%E1%BA%A6N-D%E1%BB%B0-B%C3%81O:-PERFORMANCE_RATING">¶</a></h2><ul>
 <li><strong>YÊU CẦU</strong><ul>
 <li>Dữ liệu nhãn phân loại cần phải hợp lý để sau này mô hình học được đúng cách "ánh xạ"</li>
-<li>Cột nhãn này không thể để ngẫu nhiên được, phải đúng với logic thực tế, khởi tạo từ các biến đầu vào ở trên</li>
+<li>Cột nhãn này không thể để ngẫu nhiên được, phải đúng với logic thực tế, có mối quan hệ với các biến đầu vào ở trên</li>
 </ul>
 </li>
 <li><strong>Ý TƯỞNG</strong><ul>
-<li>Tham khảo theo cách doanh nghiệp Việt Nam tính KPI: Ghi nhận doanh số, hợp đồng, khách hàng, quy đổi theo thang đo chỉ tiêu, nhân hệ số bằng Excel</li>
-<li>Tác giả mô hình bằng phương pháp giống hệt: Lấy những cột quan trọng, nhân trọng số tùy theo mức độ quan trọng, cắt threshold theo các mức</li>
+<li>Tham khảo theo cách doanh nghiệp/ngân hàng Việt Nam tính KPI: đề ra chỉ tiêu, ghi nhận chỉ số, quy đổi theo thang đo, nhân hệ số, cắt ngưỡng bằng Excel</li>
+<li>Tác giả mô hình bằng phương pháp tương tự: Lấy những cột quan trọng, nhân trọng số tùy theo mức độ quan trọng, cắt threshold</li>
 </ul>
 </li>
 </ul>
@@ -8147,7 +8144,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [73]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Hàm chuẩn hóa min-max</span>
@@ -8216,7 +8213,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [74]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Xác định ngưỡng phân loại</span>
@@ -8302,7 +8299,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [75]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1">##############################</span>
@@ -8331,7 +8328,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [76]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [11]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Tính phân phối</span>
@@ -8375,7 +8372,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [77]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [12]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Xóa các cột trung gian</span>
@@ -8407,7 +8404,7 @@ a.anchor-link {
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="2.1:-L%C6%AFU-%C3%9D-V%E1%BB%80-TRAIN-TEST-SPLIT-(QUAN-TR%E1%BB%8CNG)"><strong>2.1: LƯU Ý VỀ TRAIN TEST SPLIT (QUAN TRỌNG)</strong><a class="anchor-link" href="#2.1:-L%C6%AFU-%C3%9D-V%E1%BB%80-TRAIN-TEST-SPLIT-(QUAN-TR%E1%BB%8CNG)">¶</a></h2><ul>
 <li><strong>PIPELINE KHI SỬ DỤNG MAPIE</strong><ul>
-<li>Mapie Clf ở phần 3 cần sử dụng thêm 1 tập X/y_Cal, viết tắt của Calibration, sẽ giải thích ở bước 3 sau.</li>
+<li>Mapie Clf ở phần 3 cần sử dụng thêm 1 tập Cal, viết tắt của Calibration</li>
 <li>Tạm thời chỉ cần nhớ: thay vì chia thành 2 tập Train/Test - 70/30, 75/25, 80/20, ... như mọi khi thì ta cần chia thêm tập Cal nhỏ nữa</li>
 </ul>
 </li>
@@ -8415,8 +8412,8 @@ a.anchor-link {
 <li>Tỷ lệ: chia 2 lần, chia tập lớn nào trước cũng được, tự nhân hệ số ra  % mong muốn,</li>
 <li>Lưu ý: cần chia sao thỏa mãn<ul>
 <li>Tập train đủ lớn để mô hình đủ thông tin học</li>
-<li>Tập test đủ lớn để mô hình dự báo phía sau</li>
-<li>Tập cal đủ lớn để mô hình Mapie Clf học cách dự báo Pred Set</li>
+<li>Tập test đủ lớn để mô hình đánh giá dự báo phía sau</li>
+<li>Tập cal vừa để mô hình Mapie Clf học cách dự báo Pred Set</li>
 </ul>
 </li>
 <li>Tạm thời, khuyến cáo tỷ lệ ví dụ như: Train/Cal/Test ~ 60/15/25</li>
@@ -8432,7 +8429,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [78]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [13]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_test_split</span>
@@ -8495,14 +8492,14 @@ Test:  (25000, 14)
 <hr/>
 <h2 id="2.2:-X%C3%82Y-D%E1%BB%B0NG-M%C3%94-H%C3%8CNH-L%C3%95I"><strong>2.2: XÂY DỰNG MÔ HÌNH LÕI</strong><a class="anchor-link" href="#2.2:-X%C3%82Y-D%E1%BB%B0NG-M%C3%94-H%C3%8CNH-L%C3%95I">¶</a></h2><ul>
 <li><strong>PIPELINE KHI SỬ DỤNG MAPIE</strong><ul>
-<li>Tác giả giả định người đọc đã quen với các bài phân loại (Classification) và có thể tự thực hiện các bước như<ul>
+<li>Tác giả giả định người đọc đã quen với các bài phân loại - Classification - và có thể tự thực hiện các bước như<ul>
 <li>Lựa chọn biến đầu vào</li>
 <li>Chuẩn hóa</li>
 <li>Huấn luyện mô hình bằng tập X/y_train</li>
 <li>Đánh giá mô hình bằng tập X/y_test</li>
 </ul>
 </li>
-<li>Tài liệu này sẽ tập trung vào MAPIE CLF (Phần 3), tạm thời cần train model lõi trước đã</li>
+<li>Notebook này sẽ tập trung vào Mapie Clf (Phần 3)</li>
 </ul>
 </li>
 <li><strong>GHI NHỚ RẰNG: "TRAIN MODEL VÀ ĐÁNH GIÁ QUA TẬP TEST NHƯ MỌI KHI, CHỌN RA MODEL CÓ CHỈ SỐ TỐT NHẤT"</strong></li>
@@ -8515,7 +8512,7 @@ Test:  (25000, 14)
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [79]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [14]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Chuẩn hóa Y</span>
@@ -8533,7 +8530,7 @@ Test:  (25000, 14)
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [80]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [15]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Khởi tạo các mô hình</span>
@@ -8575,7 +8572,7 @@ Done bro!
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [81]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [16]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">accuracy_score</span><span class="p">,</span> <span class="n">f1_score</span><span class="p">,</span> <span class="n">precision_score</span><span class="p">,</span> <span class="n">recall_score</span>
@@ -8610,7 +8607,7 @@ Done bro!
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[81]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[16]:</div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
 <div>
 <style scoped="">
@@ -8666,7 +8663,7 @@ Done bro!
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [82]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [17]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Lấy model XGBoost (BEST MODEL) đã train</span>
@@ -8717,10 +8714,10 @@ Done bro!
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <hr/>
 <h2 id="2.3:-L%C6%AFU-%C3%9D-V%E1%BB%80-%C4%90%E1%BB%98-CH%C3%8DNH-X%C3%81C-C%E1%BB%A6A-M%C3%94-H%C3%8CNH-(QUAN-TR%E1%BB%8CNG)"><strong>2.3: LƯU Ý VỀ ĐỘ CHÍNH XÁC CỦA MÔ HÌNH (QUAN TRỌNG)</strong><a class="anchor-link" href="#2.3:-L%C6%AFU-%C3%9D-V%E1%BB%80-%C4%90%E1%BB%98-CH%C3%8DNH-X%C3%81C-C%E1%BB%A6A-M%C3%94-H%C3%8CNH-(QUAN-TR%E1%BB%8CNG)">¶</a></h2><ul>
-<li><strong>BẢN CHẤT KẾT QUẢ DỰ ĐOÁN CƠ BẢN</strong><ul>
-<li>Bản chất mô hình phân loại khi dự báo .predict thằng X_test bất kỳ, sẽ luôn trả về "xác suất mà nó có thể được xếp vào từng nhóm" (y_proba) PROBCLASS như trong bảng ở dưới</li>
-<li>Sau đó tự động cắt threshold thu được nhãn dự báo y_pred cuối cùng</li>
-<li>Cuối cùng so sánh nhãn dự báo y_pred với nhãn thật y_test thu được bảng metric F1 và confusion matrix mà ta vẫn thường thấy như ở trên</li>
+<li><strong>KẾT QUẢ DỰ BÁO</strong><ul>
+<li>Bản chất mô hình phân loại khi dự báo thằng X_test bất kỳ, luôn trả về "xác suất mà nó có thể được xếp vào từng class" - y_proba - PROBCLASS như trong bảng ở dưới</li>
+<li>Sau đó tự động cắt threshold 0.5 thu được nhãn dự báo y_pred cuối cùng</li>
+<li>Cuối cùng so sánh nhãn dự báo y_pred với nhãn thật y_test thu được bảng metric Accuracy, F1 và Confusion Matrix mà ta vẫn thường thấy như ở trên</li>
 </ul>
 </li>
 </ul>
@@ -8732,7 +8729,7 @@ Done bro!
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [83]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [18]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Lấy model XGBoost (BEST MODEL) đã train</span>
@@ -8763,165 +8760,165 @@ Done bro!
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[83]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[18]:</div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
 <style type="text/css">
-#T_61c48_row0_col0, #T_61c48_row0_col5, #T_61c48_row1_col0, #T_61c48_row1_col5, #T_61c48_row2_col0, #T_61c48_row2_col5, #T_61c48_row3_col0, #T_61c48_row3_col5, #T_61c48_row4_col0, #T_61c48_row4_col5, #T_61c48_row5_col0, #T_61c48_row5_col5, #T_61c48_row6_col0, #T_61c48_row6_col5, #T_61c48_row7_col0, #T_61c48_row7_col5, #T_61c48_row8_col0, #T_61c48_row8_col5, #T_61c48_row9_col0, #T_61c48_row9_col5 {
+#T_80615_row0_col0, #T_80615_row0_col5, #T_80615_row1_col0, #T_80615_row1_col5, #T_80615_row2_col0, #T_80615_row2_col5, #T_80615_row3_col0, #T_80615_row3_col5, #T_80615_row4_col0, #T_80615_row4_col5, #T_80615_row5_col0, #T_80615_row5_col5, #T_80615_row6_col0, #T_80615_row6_col5, #T_80615_row7_col0, #T_80615_row7_col5, #T_80615_row8_col0, #T_80615_row8_col5, #T_80615_row9_col0, #T_80615_row9_col5 {
   text-align: center;
 }
-#T_61c48_row0_col1, #T_61c48_row0_col3, #T_61c48_row0_col4, #T_61c48_row1_col1, #T_61c48_row1_col2, #T_61c48_row1_col3, #T_61c48_row2_col3, #T_61c48_row2_col4, #T_61c48_row3_col1, #T_61c48_row3_col3, #T_61c48_row3_col4, #T_61c48_row4_col3, #T_61c48_row4_col4, #T_61c48_row5_col1, #T_61c48_row5_col2, #T_61c48_row6_col1, #T_61c48_row6_col4, #T_61c48_row7_col1, #T_61c48_row7_col2, #T_61c48_row7_col3, #T_61c48_row8_col1, #T_61c48_row8_col3, #T_61c48_row8_col4, #T_61c48_row9_col1, #T_61c48_row9_col4 {
+#T_80615_row0_col1, #T_80615_row0_col3, #T_80615_row0_col4, #T_80615_row1_col1, #T_80615_row1_col2, #T_80615_row1_col3, #T_80615_row2_col3, #T_80615_row2_col4, #T_80615_row3_col1, #T_80615_row3_col3, #T_80615_row3_col4, #T_80615_row4_col3, #T_80615_row4_col4, #T_80615_row5_col1, #T_80615_row5_col2, #T_80615_row6_col1, #T_80615_row6_col4, #T_80615_row7_col1, #T_80615_row7_col2, #T_80615_row7_col3, #T_80615_row8_col1, #T_80615_row8_col3, #T_80615_row8_col4, #T_80615_row9_col1, #T_80615_row9_col4 {
   background-color: #ffffe5;
   color: #000000;
   text-align: center;
 }
-#T_61c48_row0_col2, #T_61c48_row1_col4, #T_61c48_row3_col2, #T_61c48_row4_col1, #T_61c48_row5_col3, #T_61c48_row7_col4, #T_61c48_row8_col2 {
+#T_80615_row0_col2, #T_80615_row1_col4, #T_80615_row3_col2, #T_80615_row4_col1, #T_80615_row5_col3, #T_80615_row7_col4, #T_80615_row8_col2 {
   background-color: #004529;
   color: #f1f1f1;
   text-align: center;
 }
-#T_61c48_row2_col1 {
+#T_80615_row2_col1 {
   background-color: #95d385;
   color: #000000;
   text-align: center;
 }
-#T_61c48_row2_col2 {
+#T_80615_row2_col2 {
   background-color: #258745;
   color: #f1f1f1;
   text-align: center;
 }
-#T_61c48_row4_col2 {
+#T_80615_row4_col2 {
   background-color: #a6da8b;
   color: #000000;
   text-align: center;
 }
-#T_61c48_row5_col4 {
+#T_80615_row5_col4 {
   background-color: #fbfed0;
   color: #000000;
   text-align: center;
 }
-#T_61c48_row6_col2 {
+#T_80615_row6_col2 {
   background-color: #fafdcc;
   color: #000000;
   text-align: center;
 }
-#T_61c48_row6_col3 {
+#T_80615_row6_col3 {
   background-color: #00482a;
   color: #f1f1f1;
   text-align: center;
 }
-#T_61c48_row9_col2 {
+#T_80615_row9_col2 {
   background-color: #004629;
   color: #f1f1f1;
   text-align: center;
 }
-#T_61c48_row9_col3 {
+#T_80615_row9_col3 {
   background-color: #ffffe4;
   color: #000000;
   text-align: center;
 }
 </style>
-<table id="T_61c48">
+<table id="T_80615">
 <thead>
 <tr>
 <th class="blank level0"> </th>
-<th class="col_heading level0 col0" id="T_61c48_level0_col0">y true</th>
-<th class="col_heading level0 col1" id="T_61c48_level0_col1">Prob Class 0</th>
-<th class="col_heading level0 col2" id="T_61c48_level0_col2">Prob Class 1</th>
-<th class="col_heading level0 col3" id="T_61c48_level0_col3">Prob Class 2</th>
-<th class="col_heading level0 col4" id="T_61c48_level0_col4">Prob Class 3</th>
-<th class="col_heading level0 col5" id="T_61c48_level0_col5">y pred</th>
+<th class="col_heading level0 col0" id="T_80615_level0_col0">y true</th>
+<th class="col_heading level0 col1" id="T_80615_level0_col1">Prob Class 0</th>
+<th class="col_heading level0 col2" id="T_80615_level0_col2">Prob Class 1</th>
+<th class="col_heading level0 col3" id="T_80615_level0_col3">Prob Class 2</th>
+<th class="col_heading level0 col4" id="T_80615_level0_col4">Prob Class 3</th>
+<th class="col_heading level0 col5" id="T_80615_level0_col5">y pred</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<th class="row_heading level0 row0" id="T_61c48_level0_row0">0</th>
-<td class="data row0 col0" id="T_61c48_row0_col0">1</td>
-<td class="data row0 col1" id="T_61c48_row0_col1">0.0000</td>
-<td class="data row0 col2" id="T_61c48_row0_col2">0.9970</td>
-<td class="data row0 col3" id="T_61c48_row0_col3">0.0030</td>
-<td class="data row0 col4" id="T_61c48_row0_col4">0.0000</td>
-<td class="data row0 col5" id="T_61c48_row0_col5">1</td>
+<th class="row_heading level0 row0" id="T_80615_level0_row0">0</th>
+<td class="data row0 col0" id="T_80615_row0_col0">1</td>
+<td class="data row0 col1" id="T_80615_row0_col1">0.0000</td>
+<td class="data row0 col2" id="T_80615_row0_col2">0.9970</td>
+<td class="data row0 col3" id="T_80615_row0_col3">0.0030</td>
+<td class="data row0 col4" id="T_80615_row0_col4">0.0000</td>
+<td class="data row0 col5" id="T_80615_row0_col5">1</td>
 </tr>
 <tr>
-<th class="row_heading level0 row1" id="T_61c48_level0_row1">1</th>
-<td class="data row1 col0" id="T_61c48_row1_col0">3</td>
-<td class="data row1 col1" id="T_61c48_row1_col1">0.0000</td>
-<td class="data row1 col2" id="T_61c48_row1_col2">0.0000</td>
-<td class="data row1 col3" id="T_61c48_row1_col3">0.0001</td>
-<td class="data row1 col4" id="T_61c48_row1_col4">0.9999</td>
-<td class="data row1 col5" id="T_61c48_row1_col5">3</td>
+<th class="row_heading level0 row1" id="T_80615_level0_row1">1</th>
+<td class="data row1 col0" id="T_80615_row1_col0">3</td>
+<td class="data row1 col1" id="T_80615_row1_col1">0.0000</td>
+<td class="data row1 col2" id="T_80615_row1_col2">0.0000</td>
+<td class="data row1 col3" id="T_80615_row1_col3">0.0001</td>
+<td class="data row1 col4" id="T_80615_row1_col4">0.9999</td>
+<td class="data row1 col5" id="T_80615_row1_col5">3</td>
 </tr>
 <tr>
-<th class="row_heading level0 row2" id="T_61c48_level0_row2">2</th>
-<td class="data row2 col0" id="T_61c48_row2_col0">1</td>
-<td class="data row2 col1" id="T_61c48_row2_col1">0.2604</td>
-<td class="data row2 col2" id="T_61c48_row2_col2">0.7396</td>
-<td class="data row2 col3" id="T_61c48_row2_col3">0.0000</td>
-<td class="data row2 col4" id="T_61c48_row2_col4">0.0000</td>
-<td class="data row2 col5" id="T_61c48_row2_col5">1</td>
+<th class="row_heading level0 row2" id="T_80615_level0_row2">2</th>
+<td class="data row2 col0" id="T_80615_row2_col0">1</td>
+<td class="data row2 col1" id="T_80615_row2_col1">0.2604</td>
+<td class="data row2 col2" id="T_80615_row2_col2">0.7396</td>
+<td class="data row2 col3" id="T_80615_row2_col3">0.0000</td>
+<td class="data row2 col4" id="T_80615_row2_col4">0.0000</td>
+<td class="data row2 col5" id="T_80615_row2_col5">1</td>
 </tr>
 <tr>
-<th class="row_heading level0 row3" id="T_61c48_level0_row3">3</th>
-<td class="data row3 col0" id="T_61c48_row3_col0">1</td>
-<td class="data row3 col1" id="T_61c48_row3_col1">0.0001</td>
-<td class="data row3 col2" id="T_61c48_row3_col2">0.9994</td>
-<td class="data row3 col3" id="T_61c48_row3_col3">0.0005</td>
-<td class="data row3 col4" id="T_61c48_row3_col4">0.0000</td>
-<td class="data row3 col5" id="T_61c48_row3_col5">1</td>
+<th class="row_heading level0 row3" id="T_80615_level0_row3">3</th>
+<td class="data row3 col0" id="T_80615_row3_col0">1</td>
+<td class="data row3 col1" id="T_80615_row3_col1">0.0001</td>
+<td class="data row3 col2" id="T_80615_row3_col2">0.9994</td>
+<td class="data row3 col3" id="T_80615_row3_col3">0.0005</td>
+<td class="data row3 col4" id="T_80615_row3_col4">0.0000</td>
+<td class="data row3 col5" id="T_80615_row3_col5">1</td>
 </tr>
 <tr>
-<th class="row_heading level0 row4" id="T_61c48_level0_row4">4</th>
-<td class="data row4 col0" id="T_61c48_row4_col0">0</td>
-<td class="data row4 col1" id="T_61c48_row4_col1">0.6058</td>
-<td class="data row4 col2" id="T_61c48_row4_col2">0.3942</td>
-<td class="data row4 col3" id="T_61c48_row4_col3">0.0000</td>
-<td class="data row4 col4" id="T_61c48_row4_col4">0.0000</td>
-<td class="data row4 col5" id="T_61c48_row4_col5">0</td>
+<th class="row_heading level0 row4" id="T_80615_level0_row4">4</th>
+<td class="data row4 col0" id="T_80615_row4_col0">0</td>
+<td class="data row4 col1" id="T_80615_row4_col1">0.6058</td>
+<td class="data row4 col2" id="T_80615_row4_col2">0.3942</td>
+<td class="data row4 col3" id="T_80615_row4_col3">0.0000</td>
+<td class="data row4 col4" id="T_80615_row4_col4">0.0000</td>
+<td class="data row4 col5" id="T_80615_row4_col5">0</td>
 </tr>
 <tr>
-<th class="row_heading level0 row5" id="T_61c48_level0_row5">5</th>
-<td class="data row5 col0" id="T_61c48_row5_col0">2</td>
-<td class="data row5 col1" id="T_61c48_row5_col1">0.0000</td>
-<td class="data row5 col2" id="T_61c48_row5_col2">0.0000</td>
-<td class="data row5 col3" id="T_61c48_row5_col3">0.9410</td>
-<td class="data row5 col4" id="T_61c48_row5_col4">0.0589</td>
-<td class="data row5 col5" id="T_61c48_row5_col5">2</td>
+<th class="row_heading level0 row5" id="T_80615_level0_row5">5</th>
+<td class="data row5 col0" id="T_80615_row5_col0">2</td>
+<td class="data row5 col1" id="T_80615_row5_col1">0.0000</td>
+<td class="data row5 col2" id="T_80615_row5_col2">0.0000</td>
+<td class="data row5 col3" id="T_80615_row5_col3">0.9410</td>
+<td class="data row5 col4" id="T_80615_row5_col4">0.0589</td>
+<td class="data row5 col5" id="T_80615_row5_col5">2</td>
 </tr>
 <tr>
-<th class="row_heading level0 row6" id="T_61c48_level0_row6">6</th>
-<td class="data row6 col0" id="T_61c48_row6_col0">2</td>
-<td class="data row6 col1" id="T_61c48_row6_col1">0.0000</td>
-<td class="data row6 col2" id="T_61c48_row6_col2">0.0724</td>
-<td class="data row6 col3" id="T_61c48_row6_col3">0.9276</td>
-<td class="data row6 col4" id="T_61c48_row6_col4">0.0001</td>
-<td class="data row6 col5" id="T_61c48_row6_col5">2</td>
+<th class="row_heading level0 row6" id="T_80615_level0_row6">6</th>
+<td class="data row6 col0" id="T_80615_row6_col0">2</td>
+<td class="data row6 col1" id="T_80615_row6_col1">0.0000</td>
+<td class="data row6 col2" id="T_80615_row6_col2">0.0724</td>
+<td class="data row6 col3" id="T_80615_row6_col3">0.9276</td>
+<td class="data row6 col4" id="T_80615_row6_col4">0.0001</td>
+<td class="data row6 col5" id="T_80615_row6_col5">2</td>
 </tr>
 <tr>
-<th class="row_heading level0 row7" id="T_61c48_level0_row7">7</th>
-<td class="data row7 col0" id="T_61c48_row7_col0">3</td>
-<td class="data row7 col1" id="T_61c48_row7_col1">0.0000</td>
-<td class="data row7 col2" id="T_61c48_row7_col2">0.0001</td>
-<td class="data row7 col3" id="T_61c48_row7_col3">0.0008</td>
-<td class="data row7 col4" id="T_61c48_row7_col4">0.9991</td>
-<td class="data row7 col5" id="T_61c48_row7_col5">3</td>
+<th class="row_heading level0 row7" id="T_80615_level0_row7">7</th>
+<td class="data row7 col0" id="T_80615_row7_col0">3</td>
+<td class="data row7 col1" id="T_80615_row7_col1">0.0000</td>
+<td class="data row7 col2" id="T_80615_row7_col2">0.0001</td>
+<td class="data row7 col3" id="T_80615_row7_col3">0.0008</td>
+<td class="data row7 col4" id="T_80615_row7_col4">0.9991</td>
+<td class="data row7 col5" id="T_80615_row7_col5">3</td>
 </tr>
 <tr>
-<th class="row_heading level0 row8" id="T_61c48_level0_row8">8</th>
-<td class="data row8 col0" id="T_61c48_row8_col0">1</td>
-<td class="data row8 col1" id="T_61c48_row8_col1">0.0001</td>
-<td class="data row8 col2" id="T_61c48_row8_col2">0.9999</td>
-<td class="data row8 col3" id="T_61c48_row8_col3">0.0000</td>
-<td class="data row8 col4" id="T_61c48_row8_col4">0.0000</td>
-<td class="data row8 col5" id="T_61c48_row8_col5">1</td>
+<th class="row_heading level0 row8" id="T_80615_level0_row8">8</th>
+<td class="data row8 col0" id="T_80615_row8_col0">1</td>
+<td class="data row8 col1" id="T_80615_row8_col1">0.0001</td>
+<td class="data row8 col2" id="T_80615_row8_col2">0.9999</td>
+<td class="data row8 col3" id="T_80615_row8_col3">0.0000</td>
+<td class="data row8 col4" id="T_80615_row8_col4">0.0000</td>
+<td class="data row8 col5" id="T_80615_row8_col5">1</td>
 </tr>
 <tr>
-<th class="row_heading level0 row9" id="T_61c48_level0_row9">9</th>
-<td class="data row9 col0" id="T_61c48_row9_col0">1</td>
-<td class="data row9 col1" id="T_61c48_row9_col1">0.0000</td>
-<td class="data row9 col2" id="T_61c48_row9_col2">0.9954</td>
-<td class="data row9 col3" id="T_61c48_row9_col3">0.0046</td>
-<td class="data row9 col4" id="T_61c48_row9_col4">0.0000</td>
-<td class="data row9 col5" id="T_61c48_row9_col5">1</td>
+<th class="row_heading level0 row9" id="T_80615_level0_row9">9</th>
+<td class="data row9 col0" id="T_80615_row9_col0">1</td>
+<td class="data row9 col1" id="T_80615_row9_col1">0.0000</td>
+<td class="data row9 col2" id="T_80615_row9_col2">0.9954</td>
+<td class="data row9 col3" id="T_80615_row9_col3">0.0046</td>
+<td class="data row9 col4" id="T_80615_row9_col4">0.0000</td>
+<td class="data row9 col5" id="T_80615_row9_col5">1</td>
 </tr>
 </tbody>
 </table>
@@ -8938,14 +8935,14 @@ Done bro!
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <ul>
 <li><strong>SAI SỐ CHẤP NHẬN</strong><ul>
-<li>Vậy thì những thằng X/y dự báo bị sai thì sao? Rõ ràng là khi triển khai thực tế thì ta không thể biết được, không hề có nhãn y_true để ta kiểm tra</li>
+<li>Vậy thì những thằng X/y_test dự báo bị sai thì sao? Rõ ràng là khi triển khai thực tế thì ta không thể biết được, không hề có nhãn y_true để ta kiểm tra</li>
 <li>Ta phải chấp nhận rằng dù là mô hình hay con người luôn luôn có sai số, chỉ đạt được 9x % chính xác</li>
 </ul>
 </li>
 <li><strong>VẤN ĐỀ NẢY SINH</strong><ul>
 <li>Vậy nếu khách hàng/đối tác yêu cầu trả về các hồ sơ nghi ngờ để xem xét duyệt thì ta trả về như thế nào? Mô hình đáng tin đến mức nào họ không biết được</li>
-<li>Ví dụ như có những thằng X mà mô hình dự báo ra class0 60%, class1 40% tức là mô hình đang phân vân giữa 2 class này</li>
-<li>Có nên trả về hay không? Hay dự báo nó là class0 với xác suất tự tin = 60% cũng là ổn chấp nhận được rồi? Rất khó nói đúng không?</li>
+<li>Ví dụ có những thằng X mà mô hình dự báo ra class0 60%, class1 40% tức là mô hình đang phân vân giữa 2 class này</li>
+<li>Có nên trả về hay không? Hay dự báo nó là class0 cũng được? Rất khó nói đúng không?</li>
 <li>Vậy thì chỉ cần setting thêm phần cắt ngưỡng, nếu max(y_proba)&lt; 75% thì trả hồ sơ về chẳng hạn? Nhưng cách này khá là chủ quan, không ổn chút nào</li>
 </ul>
 </li>
@@ -8983,24 +8980,25 @@ Done bro!
 <li><a href="https://mapie.readthedocs.io/en/latest/generated/mapie.classification.MapieClassifier.html">https://mapie.readthedocs.io/en/latest/generated/mapie.classification.MapieClassifier.html</a></li>
 </ul>
 </li>
-<li><strong>THUẬT TOÁN</strong><ul>
-<li>"Có thể đọc lướt qua":</li>
-<li>Sau khi train model lõi tốt nhất ở trên (XGBoost chẳng hạn)</li>
-<li>Ta fit MapieClassifier lên tập X/y_cal. Tác giả sẽ không đi sâu vào thuật toán của hộp đen, ý tưởng là:<ul>
-<li>Mapie dùng chính lõi đã huấn luyện từ X/y_train (xgb_model) để dự báo cho X_cal</li>
-<li>Mỗi thằng X_cal thu được y_proba_cal</li>
-<li>Tính sai số giữa y_proba_cal với y_cal</li>
-<li>Thu được nonconformity là phân phối sai số (sai số giữa "xác suất dự đoán" so với "nhãn thật")</li>
-<li>Lấy ý tưởng từ độ tin cậy, lấy Q là phân vị 95% của phân phối này</li>
-<li>Cộng trừ Q vào 2 phía của y_proba_test tạo khoảng xác suất upper lower cho y_proba_test</li>
-<li>Cắt ngưỡng linh hoạt thu được PREDICTION SET cho từng thằng X_cal</li>
+<li><strong>THUẬT TOÁN Ý TƯỞNG</strong><ul>
+<li>Mô hình tốt nhất đã huấn luyện từ tập train là <strong>xgb_model</strong></li>
+<li>Mapie dùng <strong>xgb_model</strong> dự báo <strong>X_cal</strong> ra xác suất <strong>y_cal_proba</strong><ul>
+<li>Tính sai số giữa <strong>y_cal_proba</strong> vs <strong>y_cal</strong></li>
+<li>Thu được <strong>nonconformity</strong> là phân phối sai số - sai số giữa "xác suất dự đoán" so với "nhãn thật"</li>
+<li>Cài đặt <strong>alpha = 0.05</strong> (chẳng hạn)</li>
+<li>Với ý tưởng từ độ tin cậy, lấy <strong>Q</strong> là phân vị 95% của phân phối sai số này</li>
+</ul>
+</li>
+<li>Mapie dùng <strong>xgb_model</strong> dự báo <strong>X_test</strong> ra xác suất <strong>y_test_proba</strong><ul>
+<li>Cộng trừ <strong>Q</strong> vào 2 phía của <strong>y_test_proba</strong> tạo khoảng <strong>proba upper/lower</strong> cho <strong>y_test_proba</strong></li>
+<li>Cắt ngưỡng linh hoạt thu được <strong>Prediction Set</strong></li>
 </ul>
 </li>
 </ul>
 </li>
 <li><strong>THUẬT TOÁN NGẮN GỌN</strong><ul>
-<li>Fit Mapie bằng tập Cal</li>
-<li>Output được Prediction set (tập nhãn dự báo) cho từng X_test</li>
+<li>Fit MapieClassifier bằng tập Cal</li>
+<li>Predict Set cho tập Test</li>
 </ul>
 </li>
 <li><strong>GHI NHỚ RẰNG: "MODEL LÕI FIT BẰNG TẬP TRAIN =&gt; MAPIE CLF FIT BẰNG TẬP CAL =&gt; PREDICT SET CHO TẬP TEST"</strong></li>
@@ -9018,8 +9016,8 @@ Done bro!
 <hr/>
 <h2 id="3.1:-FIT-MAPIE-CLF"><strong>3.1: FIT MAPIE CLF</strong><a class="anchor-link" href="#3.1:-FIT-MAPIE-CLF">¶</a></h2><ul>
 <li><strong>CÁC SETTING HIỆN TẠI</strong><ul>
-<li>estimator: dùng model có chỉ số tốt nhất đã chốt ở Phần 2 (xgb_model)</li>
-<li>cv &amp; score: giải thích rất dài, hỏi chatgpt hoặc đọc link tài liệu bên trên. Tạm thời khuyến cáo cứ dùng setting phổ thông nhất như trong code</li>
+<li><strong>estimator:</strong> Dùng model lõi tốt nhất đã chốt ở Phần 2 là <strong>xgb_model</strong></li>
+<li><strong>cv &amp; method::</strong> Giải thích rất dài, hỏi chatgpt hoặc đọc link tài liệu bên trên. Tạm thời khuyến cáo dùng setting phổ thông nhất như trong code</li>
 </ul>
 </li>
 </ul>
@@ -9031,7 +9029,7 @@ Done bro!
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [84]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [19]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">mapie.classification</span><span class="w"> </span><span class="kn">import</span> <span class="n">MapieClassifier</span>
@@ -9055,9 +9053,9 @@ Done bro!
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[84]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[19]:</div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
-<style>#sk-container-id-2 {
+<style>#sk-container-id-1 {
   /* Definition of color scheme common for light and dark mode */
   --sklearn-color-text: black;
   --sklearn-color-line: gray;
@@ -9087,15 +9085,15 @@ Done bro!
   }
 }
 
-#sk-container-id-2 {
+#sk-container-id-1 {
   color: var(--sklearn-color-text);
 }
 
-#sk-container-id-2 pre {
+#sk-container-id-1 pre {
   padding: 0;
 }
 
-#sk-container-id-2 input.sk-hidden--visually {
+#sk-container-id-1 input.sk-hidden--visually {
   border: 0;
   clip: rect(1px 1px 1px 1px);
   clip: rect(1px, 1px, 1px, 1px);
@@ -9107,7 +9105,7 @@ Done bro!
   width: 1px;
 }
 
-#sk-container-id-2 div.sk-dashed-wrapped {
+#sk-container-id-1 div.sk-dashed-wrapped {
   border: 1px dashed var(--sklearn-color-line);
   margin: 0 0.4em 0.5em 0.4em;
   box-sizing: border-box;
@@ -9115,7 +9113,7 @@ Done bro!
   background-color: var(--sklearn-color-background);
 }
 
-#sk-container-id-2 div.sk-container {
+#sk-container-id-1 div.sk-container {
   /* jupyter's `normalize.less` sets `[hidden] { display: none; }`
      but bootstrap.min.css set `[hidden] { display: none !important; }`
      so we also need the `!important` here to be able to override the
@@ -9125,7 +9123,7 @@ Done bro!
   position: relative;
 }
 
-#sk-container-id-2 div.sk-text-repr-fallback {
+#sk-container-id-1 div.sk-text-repr-fallback {
   display: none;
 }
 
@@ -9141,14 +9139,14 @@ div.sk-item {
 
 /* Parallel-specific style estimator block */
 
-#sk-container-id-2 div.sk-parallel-item::after {
+#sk-container-id-1 div.sk-parallel-item::after {
   content: "";
   width: 100%;
   border-bottom: 2px solid var(--sklearn-color-text-on-default-background);
   flex-grow: 1;
 }
 
-#sk-container-id-2 div.sk-parallel {
+#sk-container-id-1 div.sk-parallel {
   display: flex;
   align-items: stretch;
   justify-content: center;
@@ -9156,28 +9154,28 @@ div.sk-item {
   position: relative;
 }
 
-#sk-container-id-2 div.sk-parallel-item {
+#sk-container-id-1 div.sk-parallel-item {
   display: flex;
   flex-direction: column;
 }
 
-#sk-container-id-2 div.sk-parallel-item:first-child::after {
+#sk-container-id-1 div.sk-parallel-item:first-child::after {
   align-self: flex-end;
   width: 50%;
 }
 
-#sk-container-id-2 div.sk-parallel-item:last-child::after {
+#sk-container-id-1 div.sk-parallel-item:last-child::after {
   align-self: flex-start;
   width: 50%;
 }
 
-#sk-container-id-2 div.sk-parallel-item:only-child::after {
+#sk-container-id-1 div.sk-parallel-item:only-child::after {
   width: 0;
 }
 
 /* Serial-specific style estimator block */
 
-#sk-container-id-2 div.sk-serial {
+#sk-container-id-1 div.sk-serial {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -9195,14 +9193,14 @@ clickable and can be expanded/collapsed.
 
 /* Pipeline and ColumnTransformer style (default) */
 
-#sk-container-id-2 div.sk-toggleable {
+#sk-container-id-1 div.sk-toggleable {
   /* Default theme specific background. It is overwritten whether we have a
   specific estimator or a Pipeline/ColumnTransformer */
   background-color: var(--sklearn-color-background);
 }
 
 /* Toggleable label */
-#sk-container-id-2 label.sk-toggleable__label {
+#sk-container-id-1 label.sk-toggleable__label {
   cursor: pointer;
   display: block;
   width: 100%;
@@ -9212,7 +9210,7 @@ clickable and can be expanded/collapsed.
   text-align: center;
 }
 
-#sk-container-id-2 label.sk-toggleable__label-arrow:before {
+#sk-container-id-1 label.sk-toggleable__label-arrow:before {
   /* Arrow on the left of the label */
   content: "▸";
   float: left;
@@ -9220,13 +9218,13 @@ clickable and can be expanded/collapsed.
   color: var(--sklearn-color-icon);
 }
 
-#sk-container-id-2 label.sk-toggleable__label-arrow:hover:before {
+#sk-container-id-1 label.sk-toggleable__label-arrow:hover:before {
   color: var(--sklearn-color-text);
 }
 
 /* Toggleable content - dropdown */
 
-#sk-container-id-2 div.sk-toggleable__content {
+#sk-container-id-1 div.sk-toggleable__content {
   max-height: 0;
   max-width: 0;
   overflow: hidden;
@@ -9235,12 +9233,12 @@ clickable and can be expanded/collapsed.
   background-color: var(--sklearn-color-unfitted-level-0);
 }
 
-#sk-container-id-2 div.sk-toggleable__content.fitted {
+#sk-container-id-1 div.sk-toggleable__content.fitted {
   /* fitted */
   background-color: var(--sklearn-color-fitted-level-0);
 }
 
-#sk-container-id-2 div.sk-toggleable__content pre {
+#sk-container-id-1 div.sk-toggleable__content pre {
   margin: 0.2em;
   border-radius: 0.25em;
   color: var(--sklearn-color-text);
@@ -9248,79 +9246,79 @@ clickable and can be expanded/collapsed.
   background-color: var(--sklearn-color-unfitted-level-0);
 }
 
-#sk-container-id-2 div.sk-toggleable__content.fitted pre {
+#sk-container-id-1 div.sk-toggleable__content.fitted pre {
   /* unfitted */
   background-color: var(--sklearn-color-fitted-level-0);
 }
 
-#sk-container-id-2 input.sk-toggleable__control:checked~div.sk-toggleable__content {
+#sk-container-id-1 input.sk-toggleable__control:checked~div.sk-toggleable__content {
   /* Expand drop-down */
   max-height: 200px;
   max-width: 100%;
   overflow: auto;
 }
 
-#sk-container-id-2 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {
+#sk-container-id-1 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {
   content: "▾";
 }
 
 /* Pipeline/ColumnTransformer-specific style */
 
-#sk-container-id-2 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {
+#sk-container-id-1 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {
   color: var(--sklearn-color-text);
   background-color: var(--sklearn-color-unfitted-level-2);
 }
 
-#sk-container-id-2 div.sk-label.fitted input.sk-toggleable__control:checked~label.sk-toggleable__label {
+#sk-container-id-1 div.sk-label.fitted input.sk-toggleable__control:checked~label.sk-toggleable__label {
   background-color: var(--sklearn-color-fitted-level-2);
 }
 
 /* Estimator-specific style */
 
 /* Colorize estimator box */
-#sk-container-id-2 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {
+#sk-container-id-1 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {
   /* unfitted */
   background-color: var(--sklearn-color-unfitted-level-2);
 }
 
-#sk-container-id-2 div.sk-estimator.fitted input.sk-toggleable__control:checked~label.sk-toggleable__label {
+#sk-container-id-1 div.sk-estimator.fitted input.sk-toggleable__control:checked~label.sk-toggleable__label {
   /* fitted */
   background-color: var(--sklearn-color-fitted-level-2);
 }
 
-#sk-container-id-2 div.sk-label label.sk-toggleable__label,
-#sk-container-id-2 div.sk-label label {
+#sk-container-id-1 div.sk-label label.sk-toggleable__label,
+#sk-container-id-1 div.sk-label label {
   /* The background is the default theme color */
   color: var(--sklearn-color-text-on-default-background);
 }
 
 /* On hover, darken the color of the background */
-#sk-container-id-2 div.sk-label:hover label.sk-toggleable__label {
+#sk-container-id-1 div.sk-label:hover label.sk-toggleable__label {
   color: var(--sklearn-color-text);
   background-color: var(--sklearn-color-unfitted-level-2);
 }
 
 /* Label box, darken color on hover, fitted */
-#sk-container-id-2 div.sk-label.fitted:hover label.sk-toggleable__label.fitted {
+#sk-container-id-1 div.sk-label.fitted:hover label.sk-toggleable__label.fitted {
   color: var(--sklearn-color-text);
   background-color: var(--sklearn-color-fitted-level-2);
 }
 
 /* Estimator label */
 
-#sk-container-id-2 div.sk-label label {
+#sk-container-id-1 div.sk-label label {
   font-family: monospace;
   font-weight: bold;
   display: inline-block;
   line-height: 1.2em;
 }
 
-#sk-container-id-2 div.sk-label-container {
+#sk-container-id-1 div.sk-label-container {
   text-align: center;
 }
 
 /* Estimator-specific */
-#sk-container-id-2 div.sk-estimator {
+#sk-container-id-1 div.sk-estimator {
   font-family: monospace;
   border: 1px dotted var(--sklearn-color-border-box);
   border-radius: 0.25em;
@@ -9330,18 +9328,18 @@ clickable and can be expanded/collapsed.
   background-color: var(--sklearn-color-unfitted-level-0);
 }
 
-#sk-container-id-2 div.sk-estimator.fitted {
+#sk-container-id-1 div.sk-estimator.fitted {
   /* fitted */
   background-color: var(--sklearn-color-fitted-level-0);
 }
 
 /* on hover */
-#sk-container-id-2 div.sk-estimator:hover {
+#sk-container-id-1 div.sk-estimator:hover {
   /* unfitted */
   background-color: var(--sklearn-color-unfitted-level-2);
 }
 
-#sk-container-id-2 div.sk-estimator.fitted:hover {
+#sk-container-id-1 div.sk-estimator.fitted:hover {
   /* fitted */
   background-color: var(--sklearn-color-fitted-level-2);
 }
@@ -9428,7 +9426,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 
 /* "?"-specific style due to the `<a>` HTML tag */
 
-#sk-container-id-2 a.estimator_doc_link {
+#sk-container-id-1 a.estimator_doc_link {
   float: right;
   font-size: 1rem;
   line-height: 1em;
@@ -9443,25 +9441,25 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
   border: var(--sklearn-color-unfitted-level-1) 1pt solid;
 }
 
-#sk-container-id-2 a.estimator_doc_link.fitted {
+#sk-container-id-1 a.estimator_doc_link.fitted {
   /* fitted */
   border: var(--sklearn-color-fitted-level-1) 1pt solid;
   color: var(--sklearn-color-fitted-level-1);
 }
 
 /* On hover */
-#sk-container-id-2 a.estimator_doc_link:hover {
+#sk-container-id-1 a.estimator_doc_link:hover {
   /* unfitted */
   background-color: var(--sklearn-color-unfitted-level-3);
   color: var(--sklearn-color-background);
   text-decoration: none;
 }
 
-#sk-container-id-2 a.estimator_doc_link.fitted:hover {
+#sk-container-id-1 a.estimator_doc_link.fitted:hover {
   /* fitted */
   background-color: var(--sklearn-color-fitted-level-3);
 }
-</style><div class="sk-top-container" id="sk-container-id-2"><div class="sk-text-repr-fallback"><pre>MapieClassifier(cv='prefit',
+</style><div class="sk-top-container" id="sk-container-id-1"><div class="sk-text-repr-fallback"><pre>MapieClassifier(cv='prefit',
                 estimator=XGBClassifier(base_score=None, booster=None,
                                         callbacks=None, colsample_bylevel=None,
                                         colsample_bynode=None,
@@ -9481,7 +9479,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
                                         missing=nan, monotone_constraints=None,
                                         multi_strategy=None, n_estimators=None,
                                         n_jobs=None, num_parallel_tree=None, ...),
-                method='score')</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br/>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item sk-dashed-wrapped"><div class="sk-label-container"><div class="sk-label fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-4" type="checkbox"/><label class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted" for="sk-estimator-id-4"> MapieClassifier<span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></label><div class="sk-toggleable__content fitted"><pre>MapieClassifier(cv='prefit',
+                method='score')</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br/>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item sk-dashed-wrapped"><div class="sk-label-container"><div class="sk-label fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox"/><label class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted" for="sk-estimator-id-1"> MapieClassifier<span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></label><div class="sk-toggleable__content fitted"><pre>MapieClassifier(cv='prefit',
                 estimator=XGBClassifier(base_score=None, booster=None,
                                         callbacks=None, colsample_bylevel=None,
                                         colsample_bynode=None,
@@ -9501,7 +9499,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
                                         missing=nan, monotone_constraints=None,
                                         multi_strategy=None, n_estimators=None,
                                         n_jobs=None, num_parallel_tree=None, ...),
-                method='score')</pre></div> </div></div><div class="sk-parallel"><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-5" type="checkbox"/><label class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted" for="sk-estimator-id-5">estimator: XGBClassifier</label><div class="sk-toggleable__content fitted"><pre>XGBClassifier(base_score=None, booster=None, callbacks=None,
+                method='score')</pre></div> </div></div><div class="sk-parallel"><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-2" type="checkbox"/><label class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted" for="sk-estimator-id-2">estimator: XGBClassifier</label><div class="sk-toggleable__content fitted"><pre>XGBClassifier(base_score=None, booster=None, callbacks=None,
               colsample_bylevel=None, colsample_bynode=None,
               colsample_bytree=None, device=None, early_stopping_rounds=None,
               enable_categorical=False, eval_metric='mlogloss',
@@ -9512,7 +9510,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
               max_delta_step=None, max_depth=None, max_leaves=None,
               min_child_weight=None, missing=nan, monotone_constraints=None,
               multi_strategy=None, n_estimators=None, n_jobs=None,
-              num_parallel_tree=None, ...)</pre></div> </div></div><div class="sk-serial"><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-6" type="checkbox"/><label class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted" for="sk-estimator-id-6"> XGBClassifier<a class="sk-estimator-doc-link fitted" href="https://xgboost.readthedocs.io/en/release_3.0.0/python/python_api.html#xgboost.XGBClassifier" rel="noreferrer" target="_blank">?<span>Documentation for XGBClassifier</span></a></label><div class="sk-toggleable__content fitted"><pre>XGBClassifier(base_score=None, booster=None, callbacks=None,
+              num_parallel_tree=None, ...)</pre></div> </div></div><div class="sk-serial"><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-3" type="checkbox"/><label class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted" for="sk-estimator-id-3"> XGBClassifier<a class="sk-estimator-doc-link fitted" href="https://xgboost.readthedocs.io/en/release_3.0.0/python/python_api.html#xgboost.XGBClassifier" rel="noreferrer" target="_blank">?<span>Documentation for XGBClassifier</span></a></label><div class="sk-toggleable__content fitted"><pre>XGBClassifier(base_score=None, booster=None, callbacks=None,
               colsample_bylevel=None, colsample_bynode=None,
               colsample_bytree=None, device=None, early_stopping_rounds=None,
               enable_categorical=False, eval_metric='mlogloss',
@@ -9554,11 +9552,11 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [85]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [20]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># THAY ĐỔI ALPHA TẠI ĐÂY ĐỂ HIỂU ĐƯỢC KẾT QUẢ PRED SET SẼ THAY ĐỔI NHƯ NÀO KHI ALPHA THAY ĐỔI</span>
-<span class="c1"># HIỆN TẠI ĐANG DÙNG ĐỘ TIN CẬY 0.99 = 99% ĐỂ TRỰC QUAN CÁC TRƯƠNG HỢP CHO ANH EM XEM</span>
+<span class="c1"># HIỆN TẠI ĐANG DÙNG ĐỘ TIN CẬY 0.99 = 99% ĐỂ TRỰC QUAN CÁC ĐỦ 2 TRƯỜNG HỢP ĐỎ VÀNG XANH</span>
 <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.01</span>
 
 <span class="c1"># 1. Dự đoán từ mô hình MAPIE</span>
@@ -9608,8 +9606,6 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
     <span class="o">.</span><span class="n">hide</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">"index"</span><span class="p">)</span>
 <span class="p">)</span>
 <span class="n">styled</span>
-
-<span class="n">styled</span>
 </pre></div>
 </div>
 </div>
@@ -9620,358 +9616,358 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[85]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[20]:</div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
 <style type="text/css">
-#T_c898d_row0_col0, #T_c898d_row0_col5, #T_c898d_row0_col7, #T_c898d_row1_col0, #T_c898d_row1_col5, #T_c898d_row1_col7, #T_c898d_row2_col0, #T_c898d_row2_col5, #T_c898d_row2_col7, #T_c898d_row3_col0, #T_c898d_row3_col5, #T_c898d_row3_col7, #T_c898d_row5_col0, #T_c898d_row5_col5, #T_c898d_row5_col7, #T_c898d_row6_col0, #T_c898d_row6_col5, #T_c898d_row6_col7, #T_c898d_row7_col0, #T_c898d_row7_col5, #T_c898d_row7_col7, #T_c898d_row8_col0, #T_c898d_row8_col5, #T_c898d_row8_col7, #T_c898d_row9_col0, #T_c898d_row9_col5, #T_c898d_row9_col7, #T_c898d_row10_col0, #T_c898d_row10_col5, #T_c898d_row10_col7, #T_c898d_row12_col0, #T_c898d_row12_col5, #T_c898d_row12_col7, #T_c898d_row13_col0, #T_c898d_row13_col5, #T_c898d_row13_col7, #T_c898d_row14_col0, #T_c898d_row14_col5, #T_c898d_row14_col7, #T_c898d_row15_col0, #T_c898d_row15_col5, #T_c898d_row15_col7, #T_c898d_row16_col0, #T_c898d_row16_col5, #T_c898d_row16_col7, #T_c898d_row17_col0, #T_c898d_row17_col5, #T_c898d_row17_col7, #T_c898d_row18_col0, #T_c898d_row18_col5, #T_c898d_row18_col7, #T_c898d_row19_col0, #T_c898d_row19_col5, #T_c898d_row19_col7 {
+#T_56cfa_row0_col0, #T_56cfa_row0_col5, #T_56cfa_row0_col7, #T_56cfa_row1_col0, #T_56cfa_row1_col5, #T_56cfa_row1_col7, #T_56cfa_row2_col0, #T_56cfa_row2_col5, #T_56cfa_row2_col7, #T_56cfa_row3_col0, #T_56cfa_row3_col5, #T_56cfa_row3_col7, #T_56cfa_row5_col0, #T_56cfa_row5_col5, #T_56cfa_row5_col7, #T_56cfa_row6_col0, #T_56cfa_row6_col5, #T_56cfa_row6_col7, #T_56cfa_row7_col0, #T_56cfa_row7_col5, #T_56cfa_row7_col7, #T_56cfa_row8_col0, #T_56cfa_row8_col5, #T_56cfa_row8_col7, #T_56cfa_row9_col0, #T_56cfa_row9_col5, #T_56cfa_row9_col7, #T_56cfa_row10_col0, #T_56cfa_row10_col5, #T_56cfa_row10_col7, #T_56cfa_row12_col0, #T_56cfa_row12_col5, #T_56cfa_row12_col7, #T_56cfa_row13_col0, #T_56cfa_row13_col5, #T_56cfa_row13_col7, #T_56cfa_row14_col0, #T_56cfa_row14_col5, #T_56cfa_row14_col7, #T_56cfa_row15_col0, #T_56cfa_row15_col5, #T_56cfa_row15_col7, #T_56cfa_row16_col0, #T_56cfa_row16_col5, #T_56cfa_row16_col7, #T_56cfa_row17_col0, #T_56cfa_row17_col5, #T_56cfa_row17_col7, #T_56cfa_row18_col0, #T_56cfa_row18_col5, #T_56cfa_row18_col7, #T_56cfa_row19_col0, #T_56cfa_row19_col5, #T_56cfa_row19_col7 {
   background-color: #00cc66;
   color: black;
   font-weight: bold;
   text-align: center;
 }
-#T_c898d_row0_col1, #T_c898d_row0_col3, #T_c898d_row0_col4, #T_c898d_row1_col1, #T_c898d_row1_col2, #T_c898d_row1_col3, #T_c898d_row2_col3, #T_c898d_row2_col4, #T_c898d_row3_col1, #T_c898d_row3_col3, #T_c898d_row3_col4, #T_c898d_row4_col3, #T_c898d_row4_col4, #T_c898d_row5_col1, #T_c898d_row5_col2, #T_c898d_row6_col1, #T_c898d_row6_col4, #T_c898d_row7_col1, #T_c898d_row7_col2, #T_c898d_row7_col3, #T_c898d_row8_col1, #T_c898d_row8_col3, #T_c898d_row8_col4, #T_c898d_row9_col1, #T_c898d_row9_col4, #T_c898d_row10_col1, #T_c898d_row10_col2, #T_c898d_row11_col1, #T_c898d_row11_col2, #T_c898d_row12_col1, #T_c898d_row12_col4, #T_c898d_row13_col1, #T_c898d_row13_col2, #T_c898d_row13_col4, #T_c898d_row14_col1, #T_c898d_row14_col3, #T_c898d_row14_col4, #T_c898d_row15_col1, #T_c898d_row15_col2, #T_c898d_row15_col4, #T_c898d_row16_col1, #T_c898d_row16_col2, #T_c898d_row16_col4, #T_c898d_row17_col1, #T_c898d_row17_col3, #T_c898d_row17_col4, #T_c898d_row18_col1, #T_c898d_row18_col2, #T_c898d_row19_col1, #T_c898d_row19_col4 {
+#T_56cfa_row0_col1, #T_56cfa_row0_col3, #T_56cfa_row0_col4, #T_56cfa_row1_col1, #T_56cfa_row1_col2, #T_56cfa_row1_col3, #T_56cfa_row2_col3, #T_56cfa_row2_col4, #T_56cfa_row3_col1, #T_56cfa_row3_col3, #T_56cfa_row3_col4, #T_56cfa_row4_col3, #T_56cfa_row4_col4, #T_56cfa_row5_col1, #T_56cfa_row5_col2, #T_56cfa_row6_col1, #T_56cfa_row6_col4, #T_56cfa_row7_col1, #T_56cfa_row7_col2, #T_56cfa_row7_col3, #T_56cfa_row8_col1, #T_56cfa_row8_col3, #T_56cfa_row8_col4, #T_56cfa_row9_col1, #T_56cfa_row9_col4, #T_56cfa_row10_col1, #T_56cfa_row10_col2, #T_56cfa_row11_col1, #T_56cfa_row11_col2, #T_56cfa_row12_col1, #T_56cfa_row12_col4, #T_56cfa_row13_col1, #T_56cfa_row13_col2, #T_56cfa_row13_col4, #T_56cfa_row14_col1, #T_56cfa_row14_col3, #T_56cfa_row14_col4, #T_56cfa_row15_col1, #T_56cfa_row15_col2, #T_56cfa_row15_col4, #T_56cfa_row16_col1, #T_56cfa_row16_col2, #T_56cfa_row16_col4, #T_56cfa_row17_col1, #T_56cfa_row17_col3, #T_56cfa_row17_col4, #T_56cfa_row18_col1, #T_56cfa_row18_col2, #T_56cfa_row19_col1, #T_56cfa_row19_col4 {
   background-color: #ffffff;
   color: #000000;
   text-align: center;
 }
-#T_c898d_row0_col2, #T_c898d_row1_col4, #T_c898d_row3_col2, #T_c898d_row4_col1, #T_c898d_row7_col4, #T_c898d_row8_col2, #T_c898d_row13_col3, #T_c898d_row14_col2, #T_c898d_row15_col3, #T_c898d_row16_col3, #T_c898d_row17_col2 {
+#T_56cfa_row0_col2, #T_56cfa_row1_col4, #T_56cfa_row3_col2, #T_56cfa_row4_col1, #T_56cfa_row7_col4, #T_56cfa_row8_col2, #T_56cfa_row13_col3, #T_56cfa_row14_col2, #T_56cfa_row15_col3, #T_56cfa_row16_col3, #T_56cfa_row17_col2 {
   background-color: #00cc66;
   color: #000000;
   text-align: center;
 }
-#T_c898d_row0_col6, #T_c898d_row1_col6, #T_c898d_row2_col6, #T_c898d_row3_col6, #T_c898d_row5_col6, #T_c898d_row6_col6, #T_c898d_row7_col6, #T_c898d_row8_col6, #T_c898d_row9_col6, #T_c898d_row10_col6, #T_c898d_row11_col6, #T_c898d_row12_col6, #T_c898d_row13_col6, #T_c898d_row14_col6, #T_c898d_row15_col6, #T_c898d_row16_col6, #T_c898d_row17_col6, #T_c898d_row18_col6, #T_c898d_row19_col6 {
+#T_56cfa_row0_col6, #T_56cfa_row1_col6, #T_56cfa_row2_col6, #T_56cfa_row3_col6, #T_56cfa_row5_col6, #T_56cfa_row6_col6, #T_56cfa_row7_col6, #T_56cfa_row8_col6, #T_56cfa_row9_col6, #T_56cfa_row10_col6, #T_56cfa_row11_col6, #T_56cfa_row12_col6, #T_56cfa_row13_col6, #T_56cfa_row14_col6, #T_56cfa_row15_col6, #T_56cfa_row16_col6, #T_56cfa_row17_col6, #T_56cfa_row18_col6, #T_56cfa_row19_col6 {
   background-color: white;
   color: black;
   font-weight: bold;
   text-align: center;
 }
-#T_c898d_row2_col1 {
+#T_56cfa_row2_col1 {
   background-color: #91e9bd;
   color: #000000;
   text-align: center;
 }
-#T_c898d_row2_col2 {
+#T_56cfa_row2_col2 {
   background-color: #42d98e;
   color: #000000;
   text-align: center;
 }
-#T_c898d_row4_col0, #T_c898d_row4_col5, #T_c898d_row4_col7 {
+#T_56cfa_row4_col0, #T_56cfa_row4_col5, #T_56cfa_row4_col7 {
   background-color: yellow;
   color: black;
   font-weight: bold;
   text-align: center;
 }
-#T_c898d_row4_col2 {
+#T_56cfa_row4_col2 {
   background-color: #9bebc3;
   color: #000000;
   text-align: center;
 }
-#T_c898d_row4_col6 {
+#T_56cfa_row4_col6 {
   background-color: #b590ff;
   color: black;
   font-weight: bold;
   text-align: center;
 }
-#T_c898d_row5_col3 {
+#T_56cfa_row5_col3 {
   background-color: #0fcf6f;
   color: #000000;
   text-align: center;
 }
-#T_c898d_row5_col4 {
+#T_56cfa_row5_col4 {
   background-color: #f0fcf6;
   color: #000000;
   text-align: center;
 }
-#T_c898d_row6_col2 {
+#T_56cfa_row6_col2 {
   background-color: #edfbf4;
   color: #000000;
   text-align: center;
 }
-#T_c898d_row6_col3 {
+#T_56cfa_row6_col3 {
   background-color: #12d071;
   color: #000000;
   text-align: center;
 }
-#T_c898d_row9_col2 {
+#T_56cfa_row9_col2 {
   background-color: #01cc67;
   color: #000000;
   text-align: center;
 }
-#T_c898d_row9_col3 {
+#T_56cfa_row9_col3 {
   background-color: #fefffe;
   color: #000000;
   text-align: center;
 }
-#T_c898d_row10_col3 {
+#T_56cfa_row10_col3 {
   background-color: #04cd68;
   color: #000000;
   text-align: center;
 }
-#T_c898d_row10_col4 {
+#T_56cfa_row10_col4 {
   background-color: #fbfefd;
   color: #000000;
   text-align: center;
 }
-#T_c898d_row11_col0, #T_c898d_row11_col5, #T_c898d_row11_col7 {
+#T_56cfa_row11_col0, #T_56cfa_row11_col5, #T_56cfa_row11_col7 {
   background-color: #f8696b;
   color: black;
   font-weight: bold;
   text-align: center;
 }
-#T_c898d_row11_col3 {
+#T_56cfa_row11_col3 {
   background-color: #0ecf6e;
   color: #000000;
   text-align: center;
 }
-#T_c898d_row11_col4 {
+#T_56cfa_row11_col4 {
   background-color: #f1fcf7;
   color: #000000;
   text-align: center;
 }
-#T_c898d_row12_col2 {
+#T_56cfa_row12_col2 {
   background-color: #03cd68;
   color: #000000;
   text-align: center;
 }
-#T_c898d_row12_col3 {
+#T_56cfa_row12_col3 {
   background-color: #fcfefd;
   color: #000000;
   text-align: center;
 }
-#T_c898d_row18_col3 {
+#T_56cfa_row18_col3 {
   background-color: #d0f6e3;
   color: #000000;
   text-align: center;
 }
-#T_c898d_row18_col4 {
+#T_56cfa_row18_col4 {
   background-color: #2fd582;
   color: #000000;
   text-align: center;
 }
-#T_c898d_row19_col2 {
+#T_56cfa_row19_col2 {
   background-color: #02cc67;
   color: #000000;
   text-align: center;
 }
-#T_c898d_row19_col3 {
+#T_56cfa_row19_col3 {
   background-color: #fdfffe;
   color: #000000;
   text-align: center;
 }
 </style>
-<table id="T_c898d">
+<table id="T_56cfa">
 <thead>
 <tr>
-<th class="col_heading level0 col0" id="T_c898d_level0_col0">y true</th>
-<th class="col_heading level0 col1" id="T_c898d_level0_col1">Prob Cass 0</th>
-<th class="col_heading level0 col2" id="T_c898d_level0_col2">Prob Cass 1</th>
-<th class="col_heading level0 col3" id="T_c898d_level0_col3">Prob Cass 2</th>
-<th class="col_heading level0 col4" id="T_c898d_level0_col4">Prob Cass 3</th>
-<th class="col_heading level0 col5" id="T_c898d_level0_col5">Prediction Set</th>
-<th class="col_heading level0 col6" id="T_c898d_level0_col6">Set size</th>
-<th class="col_heading level0 col7" id="T_c898d_level0_col7">Correct in set</th>
+<th class="col_heading level0 col0" id="T_56cfa_level0_col0">y true</th>
+<th class="col_heading level0 col1" id="T_56cfa_level0_col1">Prob Cass 0</th>
+<th class="col_heading level0 col2" id="T_56cfa_level0_col2">Prob Cass 1</th>
+<th class="col_heading level0 col3" id="T_56cfa_level0_col3">Prob Cass 2</th>
+<th class="col_heading level0 col4" id="T_56cfa_level0_col4">Prob Cass 3</th>
+<th class="col_heading level0 col5" id="T_56cfa_level0_col5">Prediction Set</th>
+<th class="col_heading level0 col6" id="T_56cfa_level0_col6">Set size</th>
+<th class="col_heading level0 col7" id="T_56cfa_level0_col7">Correct in set</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="data row0 col0" id="T_c898d_row0_col0">1</td>
-<td class="data row0 col1" id="T_c898d_row0_col1">0.00</td>
-<td class="data row0 col2" id="T_c898d_row0_col2">1.00</td>
-<td class="data row0 col3" id="T_c898d_row0_col3">0.00</td>
-<td class="data row0 col4" id="T_c898d_row0_col4">0.00</td>
-<td class="data row0 col5" id="T_c898d_row0_col5">{1}</td>
-<td class="data row0 col6" id="T_c898d_row0_col6">1</td>
-<td class="data row0 col7" id="T_c898d_row0_col7">True</td>
+<td class="data row0 col0" id="T_56cfa_row0_col0">1</td>
+<td class="data row0 col1" id="T_56cfa_row0_col1">0.00</td>
+<td class="data row0 col2" id="T_56cfa_row0_col2">1.00</td>
+<td class="data row0 col3" id="T_56cfa_row0_col3">0.00</td>
+<td class="data row0 col4" id="T_56cfa_row0_col4">0.00</td>
+<td class="data row0 col5" id="T_56cfa_row0_col5">{1}</td>
+<td class="data row0 col6" id="T_56cfa_row0_col6">1</td>
+<td class="data row0 col7" id="T_56cfa_row0_col7">True</td>
 </tr>
 <tr>
-<td class="data row1 col0" id="T_c898d_row1_col0">3</td>
-<td class="data row1 col1" id="T_c898d_row1_col1">0.00</td>
-<td class="data row1 col2" id="T_c898d_row1_col2">0.00</td>
-<td class="data row1 col3" id="T_c898d_row1_col3">0.00</td>
-<td class="data row1 col4" id="T_c898d_row1_col4">1.00</td>
-<td class="data row1 col5" id="T_c898d_row1_col5">{3}</td>
-<td class="data row1 col6" id="T_c898d_row1_col6">1</td>
-<td class="data row1 col7" id="T_c898d_row1_col7">True</td>
+<td class="data row1 col0" id="T_56cfa_row1_col0">3</td>
+<td class="data row1 col1" id="T_56cfa_row1_col1">0.00</td>
+<td class="data row1 col2" id="T_56cfa_row1_col2">0.00</td>
+<td class="data row1 col3" id="T_56cfa_row1_col3">0.00</td>
+<td class="data row1 col4" id="T_56cfa_row1_col4">1.00</td>
+<td class="data row1 col5" id="T_56cfa_row1_col5">{3}</td>
+<td class="data row1 col6" id="T_56cfa_row1_col6">1</td>
+<td class="data row1 col7" id="T_56cfa_row1_col7">True</td>
 </tr>
 <tr>
-<td class="data row2 col0" id="T_c898d_row2_col0">1</td>
-<td class="data row2 col1" id="T_c898d_row2_col1">0.26</td>
-<td class="data row2 col2" id="T_c898d_row2_col2">0.74</td>
-<td class="data row2 col3" id="T_c898d_row2_col3">0.00</td>
-<td class="data row2 col4" id="T_c898d_row2_col4">0.00</td>
-<td class="data row2 col5" id="T_c898d_row2_col5">{1}</td>
-<td class="data row2 col6" id="T_c898d_row2_col6">1</td>
-<td class="data row2 col7" id="T_c898d_row2_col7">True</td>
+<td class="data row2 col0" id="T_56cfa_row2_col0">1</td>
+<td class="data row2 col1" id="T_56cfa_row2_col1">0.26</td>
+<td class="data row2 col2" id="T_56cfa_row2_col2">0.74</td>
+<td class="data row2 col3" id="T_56cfa_row2_col3">0.00</td>
+<td class="data row2 col4" id="T_56cfa_row2_col4">0.00</td>
+<td class="data row2 col5" id="T_56cfa_row2_col5">{1}</td>
+<td class="data row2 col6" id="T_56cfa_row2_col6">1</td>
+<td class="data row2 col7" id="T_56cfa_row2_col7">True</td>
 </tr>
 <tr>
-<td class="data row3 col0" id="T_c898d_row3_col0">1</td>
-<td class="data row3 col1" id="T_c898d_row3_col1">0.00</td>
-<td class="data row3 col2" id="T_c898d_row3_col2">1.00</td>
-<td class="data row3 col3" id="T_c898d_row3_col3">0.00</td>
-<td class="data row3 col4" id="T_c898d_row3_col4">0.00</td>
-<td class="data row3 col5" id="T_c898d_row3_col5">{1}</td>
-<td class="data row3 col6" id="T_c898d_row3_col6">1</td>
-<td class="data row3 col7" id="T_c898d_row3_col7">True</td>
+<td class="data row3 col0" id="T_56cfa_row3_col0">1</td>
+<td class="data row3 col1" id="T_56cfa_row3_col1">0.00</td>
+<td class="data row3 col2" id="T_56cfa_row3_col2">1.00</td>
+<td class="data row3 col3" id="T_56cfa_row3_col3">0.00</td>
+<td class="data row3 col4" id="T_56cfa_row3_col4">0.00</td>
+<td class="data row3 col5" id="T_56cfa_row3_col5">{1}</td>
+<td class="data row3 col6" id="T_56cfa_row3_col6">1</td>
+<td class="data row3 col7" id="T_56cfa_row3_col7">True</td>
 </tr>
 <tr>
-<td class="data row4 col0" id="T_c898d_row4_col0">0</td>
-<td class="data row4 col1" id="T_c898d_row4_col1">0.61</td>
-<td class="data row4 col2" id="T_c898d_row4_col2">0.39</td>
-<td class="data row4 col3" id="T_c898d_row4_col3">0.00</td>
-<td class="data row4 col4" id="T_c898d_row4_col4">0.00</td>
-<td class="data row4 col5" id="T_c898d_row4_col5">{0, 1}</td>
-<td class="data row4 col6" id="T_c898d_row4_col6">2</td>
-<td class="data row4 col7" id="T_c898d_row4_col7">True</td>
+<td class="data row4 col0" id="T_56cfa_row4_col0">0</td>
+<td class="data row4 col1" id="T_56cfa_row4_col1">0.61</td>
+<td class="data row4 col2" id="T_56cfa_row4_col2">0.39</td>
+<td class="data row4 col3" id="T_56cfa_row4_col3">0.00</td>
+<td class="data row4 col4" id="T_56cfa_row4_col4">0.00</td>
+<td class="data row4 col5" id="T_56cfa_row4_col5">{0, 1}</td>
+<td class="data row4 col6" id="T_56cfa_row4_col6">2</td>
+<td class="data row4 col7" id="T_56cfa_row4_col7">True</td>
 </tr>
 <tr>
-<td class="data row5 col0" id="T_c898d_row5_col0">2</td>
-<td class="data row5 col1" id="T_c898d_row5_col1">0.00</td>
-<td class="data row5 col2" id="T_c898d_row5_col2">0.00</td>
-<td class="data row5 col3" id="T_c898d_row5_col3">0.94</td>
-<td class="data row5 col4" id="T_c898d_row5_col4">0.06</td>
-<td class="data row5 col5" id="T_c898d_row5_col5">{2}</td>
-<td class="data row5 col6" id="T_c898d_row5_col6">1</td>
-<td class="data row5 col7" id="T_c898d_row5_col7">True</td>
+<td class="data row5 col0" id="T_56cfa_row5_col0">2</td>
+<td class="data row5 col1" id="T_56cfa_row5_col1">0.00</td>
+<td class="data row5 col2" id="T_56cfa_row5_col2">0.00</td>
+<td class="data row5 col3" id="T_56cfa_row5_col3">0.94</td>
+<td class="data row5 col4" id="T_56cfa_row5_col4">0.06</td>
+<td class="data row5 col5" id="T_56cfa_row5_col5">{2}</td>
+<td class="data row5 col6" id="T_56cfa_row5_col6">1</td>
+<td class="data row5 col7" id="T_56cfa_row5_col7">True</td>
 </tr>
 <tr>
-<td class="data row6 col0" id="T_c898d_row6_col0">2</td>
-<td class="data row6 col1" id="T_c898d_row6_col1">0.00</td>
-<td class="data row6 col2" id="T_c898d_row6_col2">0.07</td>
-<td class="data row6 col3" id="T_c898d_row6_col3">0.93</td>
-<td class="data row6 col4" id="T_c898d_row6_col4">0.00</td>
-<td class="data row6 col5" id="T_c898d_row6_col5">{2}</td>
-<td class="data row6 col6" id="T_c898d_row6_col6">1</td>
-<td class="data row6 col7" id="T_c898d_row6_col7">True</td>
+<td class="data row6 col0" id="T_56cfa_row6_col0">2</td>
+<td class="data row6 col1" id="T_56cfa_row6_col1">0.00</td>
+<td class="data row6 col2" id="T_56cfa_row6_col2">0.07</td>
+<td class="data row6 col3" id="T_56cfa_row6_col3">0.93</td>
+<td class="data row6 col4" id="T_56cfa_row6_col4">0.00</td>
+<td class="data row6 col5" id="T_56cfa_row6_col5">{2}</td>
+<td class="data row6 col6" id="T_56cfa_row6_col6">1</td>
+<td class="data row6 col7" id="T_56cfa_row6_col7">True</td>
 </tr>
 <tr>
-<td class="data row7 col0" id="T_c898d_row7_col0">3</td>
-<td class="data row7 col1" id="T_c898d_row7_col1">0.00</td>
-<td class="data row7 col2" id="T_c898d_row7_col2">0.00</td>
-<td class="data row7 col3" id="T_c898d_row7_col3">0.00</td>
-<td class="data row7 col4" id="T_c898d_row7_col4">1.00</td>
-<td class="data row7 col5" id="T_c898d_row7_col5">{3}</td>
-<td class="data row7 col6" id="T_c898d_row7_col6">1</td>
-<td class="data row7 col7" id="T_c898d_row7_col7">True</td>
+<td class="data row7 col0" id="T_56cfa_row7_col0">3</td>
+<td class="data row7 col1" id="T_56cfa_row7_col1">0.00</td>
+<td class="data row7 col2" id="T_56cfa_row7_col2">0.00</td>
+<td class="data row7 col3" id="T_56cfa_row7_col3">0.00</td>
+<td class="data row7 col4" id="T_56cfa_row7_col4">1.00</td>
+<td class="data row7 col5" id="T_56cfa_row7_col5">{3}</td>
+<td class="data row7 col6" id="T_56cfa_row7_col6">1</td>
+<td class="data row7 col7" id="T_56cfa_row7_col7">True</td>
 </tr>
 <tr>
-<td class="data row8 col0" id="T_c898d_row8_col0">1</td>
-<td class="data row8 col1" id="T_c898d_row8_col1">0.00</td>
-<td class="data row8 col2" id="T_c898d_row8_col2">1.00</td>
-<td class="data row8 col3" id="T_c898d_row8_col3">0.00</td>
-<td class="data row8 col4" id="T_c898d_row8_col4">0.00</td>
-<td class="data row8 col5" id="T_c898d_row8_col5">{1}</td>
-<td class="data row8 col6" id="T_c898d_row8_col6">1</td>
-<td class="data row8 col7" id="T_c898d_row8_col7">True</td>
+<td class="data row8 col0" id="T_56cfa_row8_col0">1</td>
+<td class="data row8 col1" id="T_56cfa_row8_col1">0.00</td>
+<td class="data row8 col2" id="T_56cfa_row8_col2">1.00</td>
+<td class="data row8 col3" id="T_56cfa_row8_col3">0.00</td>
+<td class="data row8 col4" id="T_56cfa_row8_col4">0.00</td>
+<td class="data row8 col5" id="T_56cfa_row8_col5">{1}</td>
+<td class="data row8 col6" id="T_56cfa_row8_col6">1</td>
+<td class="data row8 col7" id="T_56cfa_row8_col7">True</td>
 </tr>
 <tr>
-<td class="data row9 col0" id="T_c898d_row9_col0">1</td>
-<td class="data row9 col1" id="T_c898d_row9_col1">0.00</td>
-<td class="data row9 col2" id="T_c898d_row9_col2">1.00</td>
-<td class="data row9 col3" id="T_c898d_row9_col3">0.00</td>
-<td class="data row9 col4" id="T_c898d_row9_col4">0.00</td>
-<td class="data row9 col5" id="T_c898d_row9_col5">{1}</td>
-<td class="data row9 col6" id="T_c898d_row9_col6">1</td>
-<td class="data row9 col7" id="T_c898d_row9_col7">True</td>
+<td class="data row9 col0" id="T_56cfa_row9_col0">1</td>
+<td class="data row9 col1" id="T_56cfa_row9_col1">0.00</td>
+<td class="data row9 col2" id="T_56cfa_row9_col2">1.00</td>
+<td class="data row9 col3" id="T_56cfa_row9_col3">0.00</td>
+<td class="data row9 col4" id="T_56cfa_row9_col4">0.00</td>
+<td class="data row9 col5" id="T_56cfa_row9_col5">{1}</td>
+<td class="data row9 col6" id="T_56cfa_row9_col6">1</td>
+<td class="data row9 col7" id="T_56cfa_row9_col7">True</td>
 </tr>
 <tr>
-<td class="data row10 col0" id="T_c898d_row10_col0">2</td>
-<td class="data row10 col1" id="T_c898d_row10_col1">0.00</td>
-<td class="data row10 col2" id="T_c898d_row10_col2">0.00</td>
-<td class="data row10 col3" id="T_c898d_row10_col3">0.98</td>
-<td class="data row10 col4" id="T_c898d_row10_col4">0.02</td>
-<td class="data row10 col5" id="T_c898d_row10_col5">{2}</td>
-<td class="data row10 col6" id="T_c898d_row10_col6">1</td>
-<td class="data row10 col7" id="T_c898d_row10_col7">True</td>
+<td class="data row10 col0" id="T_56cfa_row10_col0">2</td>
+<td class="data row10 col1" id="T_56cfa_row10_col1">0.00</td>
+<td class="data row10 col2" id="T_56cfa_row10_col2">0.00</td>
+<td class="data row10 col3" id="T_56cfa_row10_col3">0.98</td>
+<td class="data row10 col4" id="T_56cfa_row10_col4">0.02</td>
+<td class="data row10 col5" id="T_56cfa_row10_col5">{2}</td>
+<td class="data row10 col6" id="T_56cfa_row10_col6">1</td>
+<td class="data row10 col7" id="T_56cfa_row10_col7">True</td>
 </tr>
 <tr>
-<td class="data row11 col0" id="T_c898d_row11_col0">3</td>
-<td class="data row11 col1" id="T_c898d_row11_col1">0.00</td>
-<td class="data row11 col2" id="T_c898d_row11_col2">0.00</td>
-<td class="data row11 col3" id="T_c898d_row11_col3">0.94</td>
-<td class="data row11 col4" id="T_c898d_row11_col4">0.06</td>
-<td class="data row11 col5" id="T_c898d_row11_col5">{2}</td>
-<td class="data row11 col6" id="T_c898d_row11_col6">1</td>
-<td class="data row11 col7" id="T_c898d_row11_col7">False</td>
+<td class="data row11 col0" id="T_56cfa_row11_col0">3</td>
+<td class="data row11 col1" id="T_56cfa_row11_col1">0.00</td>
+<td class="data row11 col2" id="T_56cfa_row11_col2">0.00</td>
+<td class="data row11 col3" id="T_56cfa_row11_col3">0.94</td>
+<td class="data row11 col4" id="T_56cfa_row11_col4">0.06</td>
+<td class="data row11 col5" id="T_56cfa_row11_col5">{2}</td>
+<td class="data row11 col6" id="T_56cfa_row11_col6">1</td>
+<td class="data row11 col7" id="T_56cfa_row11_col7">False</td>
 </tr>
 <tr>
-<td class="data row12 col0" id="T_c898d_row12_col0">1</td>
-<td class="data row12 col1" id="T_c898d_row12_col1">0.00</td>
-<td class="data row12 col2" id="T_c898d_row12_col2">0.99</td>
-<td class="data row12 col3" id="T_c898d_row12_col3">0.01</td>
-<td class="data row12 col4" id="T_c898d_row12_col4">0.00</td>
-<td class="data row12 col5" id="T_c898d_row12_col5">{1}</td>
-<td class="data row12 col6" id="T_c898d_row12_col6">1</td>
-<td class="data row12 col7" id="T_c898d_row12_col7">True</td>
+<td class="data row12 col0" id="T_56cfa_row12_col0">1</td>
+<td class="data row12 col1" id="T_56cfa_row12_col1">0.00</td>
+<td class="data row12 col2" id="T_56cfa_row12_col2">0.99</td>
+<td class="data row12 col3" id="T_56cfa_row12_col3">0.01</td>
+<td class="data row12 col4" id="T_56cfa_row12_col4">0.00</td>
+<td class="data row12 col5" id="T_56cfa_row12_col5">{1}</td>
+<td class="data row12 col6" id="T_56cfa_row12_col6">1</td>
+<td class="data row12 col7" id="T_56cfa_row12_col7">True</td>
 </tr>
 <tr>
-<td class="data row13 col0" id="T_c898d_row13_col0">2</td>
-<td class="data row13 col1" id="T_c898d_row13_col1">0.00</td>
-<td class="data row13 col2" id="T_c898d_row13_col2">0.00</td>
-<td class="data row13 col3" id="T_c898d_row13_col3">1.00</td>
-<td class="data row13 col4" id="T_c898d_row13_col4">0.00</td>
-<td class="data row13 col5" id="T_c898d_row13_col5">{2}</td>
-<td class="data row13 col6" id="T_c898d_row13_col6">1</td>
-<td class="data row13 col7" id="T_c898d_row13_col7">True</td>
+<td class="data row13 col0" id="T_56cfa_row13_col0">2</td>
+<td class="data row13 col1" id="T_56cfa_row13_col1">0.00</td>
+<td class="data row13 col2" id="T_56cfa_row13_col2">0.00</td>
+<td class="data row13 col3" id="T_56cfa_row13_col3">1.00</td>
+<td class="data row13 col4" id="T_56cfa_row13_col4">0.00</td>
+<td class="data row13 col5" id="T_56cfa_row13_col5">{2}</td>
+<td class="data row13 col6" id="T_56cfa_row13_col6">1</td>
+<td class="data row13 col7" id="T_56cfa_row13_col7">True</td>
 </tr>
 <tr>
-<td class="data row14 col0" id="T_c898d_row14_col0">1</td>
-<td class="data row14 col1" id="T_c898d_row14_col1">0.00</td>
-<td class="data row14 col2" id="T_c898d_row14_col2">1.00</td>
-<td class="data row14 col3" id="T_c898d_row14_col3">0.00</td>
-<td class="data row14 col4" id="T_c898d_row14_col4">0.00</td>
-<td class="data row14 col5" id="T_c898d_row14_col5">{1}</td>
-<td class="data row14 col6" id="T_c898d_row14_col6">1</td>
-<td class="data row14 col7" id="T_c898d_row14_col7">True</td>
+<td class="data row14 col0" id="T_56cfa_row14_col0">1</td>
+<td class="data row14 col1" id="T_56cfa_row14_col1">0.00</td>
+<td class="data row14 col2" id="T_56cfa_row14_col2">1.00</td>
+<td class="data row14 col3" id="T_56cfa_row14_col3">0.00</td>
+<td class="data row14 col4" id="T_56cfa_row14_col4">0.00</td>
+<td class="data row14 col5" id="T_56cfa_row14_col5">{1}</td>
+<td class="data row14 col6" id="T_56cfa_row14_col6">1</td>
+<td class="data row14 col7" id="T_56cfa_row14_col7">True</td>
 </tr>
 <tr>
-<td class="data row15 col0" id="T_c898d_row15_col0">2</td>
-<td class="data row15 col1" id="T_c898d_row15_col1">0.00</td>
-<td class="data row15 col2" id="T_c898d_row15_col2">0.00</td>
-<td class="data row15 col3" id="T_c898d_row15_col3">1.00</td>
-<td class="data row15 col4" id="T_c898d_row15_col4">0.00</td>
-<td class="data row15 col5" id="T_c898d_row15_col5">{2}</td>
-<td class="data row15 col6" id="T_c898d_row15_col6">1</td>
-<td class="data row15 col7" id="T_c898d_row15_col7">True</td>
+<td class="data row15 col0" id="T_56cfa_row15_col0">2</td>
+<td class="data row15 col1" id="T_56cfa_row15_col1">0.00</td>
+<td class="data row15 col2" id="T_56cfa_row15_col2">0.00</td>
+<td class="data row15 col3" id="T_56cfa_row15_col3">1.00</td>
+<td class="data row15 col4" id="T_56cfa_row15_col4">0.00</td>
+<td class="data row15 col5" id="T_56cfa_row15_col5">{2}</td>
+<td class="data row15 col6" id="T_56cfa_row15_col6">1</td>
+<td class="data row15 col7" id="T_56cfa_row15_col7">True</td>
 </tr>
 <tr>
-<td class="data row16 col0" id="T_c898d_row16_col0">2</td>
-<td class="data row16 col1" id="T_c898d_row16_col1">0.00</td>
-<td class="data row16 col2" id="T_c898d_row16_col2">0.00</td>
-<td class="data row16 col3" id="T_c898d_row16_col3">1.00</td>
-<td class="data row16 col4" id="T_c898d_row16_col4">0.00</td>
-<td class="data row16 col5" id="T_c898d_row16_col5">{2}</td>
-<td class="data row16 col6" id="T_c898d_row16_col6">1</td>
-<td class="data row16 col7" id="T_c898d_row16_col7">True</td>
+<td class="data row16 col0" id="T_56cfa_row16_col0">2</td>
+<td class="data row16 col1" id="T_56cfa_row16_col1">0.00</td>
+<td class="data row16 col2" id="T_56cfa_row16_col2">0.00</td>
+<td class="data row16 col3" id="T_56cfa_row16_col3">1.00</td>
+<td class="data row16 col4" id="T_56cfa_row16_col4">0.00</td>
+<td class="data row16 col5" id="T_56cfa_row16_col5">{2}</td>
+<td class="data row16 col6" id="T_56cfa_row16_col6">1</td>
+<td class="data row16 col7" id="T_56cfa_row16_col7">True</td>
 </tr>
 <tr>
-<td class="data row17 col0" id="T_c898d_row17_col0">1</td>
-<td class="data row17 col1" id="T_c898d_row17_col1">0.00</td>
-<td class="data row17 col2" id="T_c898d_row17_col2">1.00</td>
-<td class="data row17 col3" id="T_c898d_row17_col3">0.00</td>
-<td class="data row17 col4" id="T_c898d_row17_col4">0.00</td>
-<td class="data row17 col5" id="T_c898d_row17_col5">{1}</td>
-<td class="data row17 col6" id="T_c898d_row17_col6">1</td>
-<td class="data row17 col7" id="T_c898d_row17_col7">True</td>
+<td class="data row17 col0" id="T_56cfa_row17_col0">1</td>
+<td class="data row17 col1" id="T_56cfa_row17_col1">0.00</td>
+<td class="data row17 col2" id="T_56cfa_row17_col2">1.00</td>
+<td class="data row17 col3" id="T_56cfa_row17_col3">0.00</td>
+<td class="data row17 col4" id="T_56cfa_row17_col4">0.00</td>
+<td class="data row17 col5" id="T_56cfa_row17_col5">{1}</td>
+<td class="data row17 col6" id="T_56cfa_row17_col6">1</td>
+<td class="data row17 col7" id="T_56cfa_row17_col7">True</td>
 </tr>
 <tr>
-<td class="data row18 col0" id="T_c898d_row18_col0">3</td>
-<td class="data row18 col1" id="T_c898d_row18_col1">0.00</td>
-<td class="data row18 col2" id="T_c898d_row18_col2">0.00</td>
-<td class="data row18 col3" id="T_c898d_row18_col3">0.19</td>
-<td class="data row18 col4" id="T_c898d_row18_col4">0.81</td>
-<td class="data row18 col5" id="T_c898d_row18_col5">{3}</td>
-<td class="data row18 col6" id="T_c898d_row18_col6">1</td>
-<td class="data row18 col7" id="T_c898d_row18_col7">True</td>
+<td class="data row18 col0" id="T_56cfa_row18_col0">3</td>
+<td class="data row18 col1" id="T_56cfa_row18_col1">0.00</td>
+<td class="data row18 col2" id="T_56cfa_row18_col2">0.00</td>
+<td class="data row18 col3" id="T_56cfa_row18_col3">0.19</td>
+<td class="data row18 col4" id="T_56cfa_row18_col4">0.81</td>
+<td class="data row18 col5" id="T_56cfa_row18_col5">{3}</td>
+<td class="data row18 col6" id="T_56cfa_row18_col6">1</td>
+<td class="data row18 col7" id="T_56cfa_row18_col7">True</td>
 </tr>
 <tr>
-<td class="data row19 col0" id="T_c898d_row19_col0">1</td>
-<td class="data row19 col1" id="T_c898d_row19_col1">0.00</td>
-<td class="data row19 col2" id="T_c898d_row19_col2">0.99</td>
-<td class="data row19 col3" id="T_c898d_row19_col3">0.01</td>
-<td class="data row19 col4" id="T_c898d_row19_col4">0.00</td>
-<td class="data row19 col5" id="T_c898d_row19_col5">{1}</td>
-<td class="data row19 col6" id="T_c898d_row19_col6">1</td>
-<td class="data row19 col7" id="T_c898d_row19_col7">True</td>
+<td class="data row19 col0" id="T_56cfa_row19_col0">1</td>
+<td class="data row19 col1" id="T_56cfa_row19_col1">0.00</td>
+<td class="data row19 col2" id="T_56cfa_row19_col2">0.99</td>
+<td class="data row19 col3" id="T_56cfa_row19_col3">0.01</td>
+<td class="data row19 col4" id="T_56cfa_row19_col4">0.00</td>
+<td class="data row19 col5" id="T_56cfa_row19_col5">{1}</td>
+<td class="data row19 col6" id="T_56cfa_row19_col6">1</td>
+<td class="data row19 col7" id="T_56cfa_row19_col7">True</td>
 </tr>
 </tbody>
 </table>
@@ -9984,7 +9980,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [86]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [24]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.001</span>
@@ -10036,9 +10032,6 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
     <span class="o">.</span><span class="n">hide</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">"index"</span><span class="p">)</span>
 <span class="p">)</span>
 <span class="n">styled</span>
-
-<span class="n">styled</span>
-<span class="n">styled</span>
 </pre></div>
 </div>
 </div>
@@ -10049,352 +10042,352 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[86]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[24]:</div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
 <style type="text/css">
-#T_11f61_row0_col0, #T_11f61_row0_col5, #T_11f61_row0_col7, #T_11f61_row1_col0, #T_11f61_row1_col5, #T_11f61_row1_col7, #T_11f61_row3_col0, #T_11f61_row3_col5, #T_11f61_row3_col7, #T_11f61_row7_col0, #T_11f61_row7_col5, #T_11f61_row7_col7, #T_11f61_row8_col0, #T_11f61_row8_col5, #T_11f61_row8_col7, #T_11f61_row9_col0, #T_11f61_row9_col5, #T_11f61_row9_col7, #T_11f61_row10_col0, #T_11f61_row10_col5, #T_11f61_row10_col7, #T_11f61_row12_col0, #T_11f61_row12_col5, #T_11f61_row12_col7, #T_11f61_row13_col0, #T_11f61_row13_col5, #T_11f61_row13_col7, #T_11f61_row14_col0, #T_11f61_row14_col5, #T_11f61_row14_col7, #T_11f61_row15_col0, #T_11f61_row15_col5, #T_11f61_row15_col7, #T_11f61_row16_col0, #T_11f61_row16_col5, #T_11f61_row16_col7, #T_11f61_row17_col0, #T_11f61_row17_col5, #T_11f61_row17_col7, #T_11f61_row19_col0, #T_11f61_row19_col5, #T_11f61_row19_col7 {
+#T_d2bd8_row0_col0, #T_d2bd8_row0_col5, #T_d2bd8_row0_col7, #T_d2bd8_row1_col0, #T_d2bd8_row1_col5, #T_d2bd8_row1_col7, #T_d2bd8_row3_col0, #T_d2bd8_row3_col5, #T_d2bd8_row3_col7, #T_d2bd8_row7_col0, #T_d2bd8_row7_col5, #T_d2bd8_row7_col7, #T_d2bd8_row8_col0, #T_d2bd8_row8_col5, #T_d2bd8_row8_col7, #T_d2bd8_row9_col0, #T_d2bd8_row9_col5, #T_d2bd8_row9_col7, #T_d2bd8_row10_col0, #T_d2bd8_row10_col5, #T_d2bd8_row10_col7, #T_d2bd8_row12_col0, #T_d2bd8_row12_col5, #T_d2bd8_row12_col7, #T_d2bd8_row13_col0, #T_d2bd8_row13_col5, #T_d2bd8_row13_col7, #T_d2bd8_row14_col0, #T_d2bd8_row14_col5, #T_d2bd8_row14_col7, #T_d2bd8_row15_col0, #T_d2bd8_row15_col5, #T_d2bd8_row15_col7, #T_d2bd8_row16_col0, #T_d2bd8_row16_col5, #T_d2bd8_row16_col7, #T_d2bd8_row17_col0, #T_d2bd8_row17_col5, #T_d2bd8_row17_col7, #T_d2bd8_row19_col0, #T_d2bd8_row19_col5, #T_d2bd8_row19_col7 {
   background-color: #00cc66;
   color: black;
   font-weight: bold;
   text-align: center;
 }
-#T_11f61_row0_col1, #T_11f61_row0_col3, #T_11f61_row0_col4, #T_11f61_row1_col1, #T_11f61_row1_col2, #T_11f61_row1_col3, #T_11f61_row2_col3, #T_11f61_row2_col4, #T_11f61_row3_col1, #T_11f61_row3_col3, #T_11f61_row3_col4, #T_11f61_row4_col3, #T_11f61_row4_col4, #T_11f61_row5_col1, #T_11f61_row5_col2, #T_11f61_row6_col1, #T_11f61_row6_col4, #T_11f61_row7_col1, #T_11f61_row7_col2, #T_11f61_row7_col3, #T_11f61_row8_col1, #T_11f61_row8_col3, #T_11f61_row8_col4, #T_11f61_row9_col1, #T_11f61_row9_col4, #T_11f61_row10_col1, #T_11f61_row10_col2, #T_11f61_row11_col1, #T_11f61_row11_col2, #T_11f61_row12_col1, #T_11f61_row12_col4, #T_11f61_row13_col1, #T_11f61_row13_col2, #T_11f61_row13_col4, #T_11f61_row14_col1, #T_11f61_row14_col3, #T_11f61_row14_col4, #T_11f61_row15_col1, #T_11f61_row15_col2, #T_11f61_row15_col4, #T_11f61_row16_col1, #T_11f61_row16_col2, #T_11f61_row16_col4, #T_11f61_row17_col1, #T_11f61_row17_col3, #T_11f61_row17_col4, #T_11f61_row18_col1, #T_11f61_row18_col2, #T_11f61_row19_col1, #T_11f61_row19_col4 {
+#T_d2bd8_row0_col1, #T_d2bd8_row0_col3, #T_d2bd8_row0_col4, #T_d2bd8_row1_col1, #T_d2bd8_row1_col2, #T_d2bd8_row1_col3, #T_d2bd8_row2_col3, #T_d2bd8_row2_col4, #T_d2bd8_row3_col1, #T_d2bd8_row3_col3, #T_d2bd8_row3_col4, #T_d2bd8_row4_col3, #T_d2bd8_row4_col4, #T_d2bd8_row5_col1, #T_d2bd8_row5_col2, #T_d2bd8_row6_col1, #T_d2bd8_row6_col4, #T_d2bd8_row7_col1, #T_d2bd8_row7_col2, #T_d2bd8_row7_col3, #T_d2bd8_row8_col1, #T_d2bd8_row8_col3, #T_d2bd8_row8_col4, #T_d2bd8_row9_col1, #T_d2bd8_row9_col4, #T_d2bd8_row10_col1, #T_d2bd8_row10_col2, #T_d2bd8_row11_col1, #T_d2bd8_row11_col2, #T_d2bd8_row12_col1, #T_d2bd8_row12_col4, #T_d2bd8_row13_col1, #T_d2bd8_row13_col2, #T_d2bd8_row13_col4, #T_d2bd8_row14_col1, #T_d2bd8_row14_col3, #T_d2bd8_row14_col4, #T_d2bd8_row15_col1, #T_d2bd8_row15_col2, #T_d2bd8_row15_col4, #T_d2bd8_row16_col1, #T_d2bd8_row16_col2, #T_d2bd8_row16_col4, #T_d2bd8_row17_col1, #T_d2bd8_row17_col3, #T_d2bd8_row17_col4, #T_d2bd8_row18_col1, #T_d2bd8_row18_col2, #T_d2bd8_row19_col1, #T_d2bd8_row19_col4 {
   background-color: #ffffff;
   color: #000000;
   text-align: center;
 }
-#T_11f61_row0_col2, #T_11f61_row1_col4, #T_11f61_row3_col2, #T_11f61_row4_col1, #T_11f61_row7_col4, #T_11f61_row8_col2, #T_11f61_row13_col3, #T_11f61_row14_col2, #T_11f61_row15_col3, #T_11f61_row16_col3, #T_11f61_row17_col2 {
+#T_d2bd8_row0_col2, #T_d2bd8_row1_col4, #T_d2bd8_row3_col2, #T_d2bd8_row4_col1, #T_d2bd8_row7_col4, #T_d2bd8_row8_col2, #T_d2bd8_row13_col3, #T_d2bd8_row14_col2, #T_d2bd8_row15_col3, #T_d2bd8_row16_col3, #T_d2bd8_row17_col2 {
   background-color: #00cc66;
   color: #000000;
   text-align: center;
 }
-#T_11f61_row0_col6, #T_11f61_row1_col6, #T_11f61_row3_col6, #T_11f61_row7_col6, #T_11f61_row8_col6, #T_11f61_row9_col6, #T_11f61_row10_col6, #T_11f61_row12_col6, #T_11f61_row13_col6, #T_11f61_row14_col6, #T_11f61_row15_col6, #T_11f61_row16_col6, #T_11f61_row17_col6, #T_11f61_row19_col6 {
+#T_d2bd8_row0_col6, #T_d2bd8_row1_col6, #T_d2bd8_row3_col6, #T_d2bd8_row7_col6, #T_d2bd8_row8_col6, #T_d2bd8_row9_col6, #T_d2bd8_row10_col6, #T_d2bd8_row12_col6, #T_d2bd8_row13_col6, #T_d2bd8_row14_col6, #T_d2bd8_row15_col6, #T_d2bd8_row16_col6, #T_d2bd8_row17_col6, #T_d2bd8_row19_col6 {
   background-color: white;
   color: black;
   font-weight: bold;
   text-align: center;
 }
-#T_11f61_row2_col0, #T_11f61_row2_col5, #T_11f61_row2_col7, #T_11f61_row4_col0, #T_11f61_row4_col5, #T_11f61_row4_col7, #T_11f61_row5_col0, #T_11f61_row5_col5, #T_11f61_row5_col7, #T_11f61_row6_col0, #T_11f61_row6_col5, #T_11f61_row6_col7, #T_11f61_row11_col0, #T_11f61_row11_col5, #T_11f61_row11_col7, #T_11f61_row18_col0, #T_11f61_row18_col5, #T_11f61_row18_col7 {
+#T_d2bd8_row2_col0, #T_d2bd8_row2_col5, #T_d2bd8_row2_col7, #T_d2bd8_row4_col0, #T_d2bd8_row4_col5, #T_d2bd8_row4_col7, #T_d2bd8_row5_col0, #T_d2bd8_row5_col5, #T_d2bd8_row5_col7, #T_d2bd8_row6_col0, #T_d2bd8_row6_col5, #T_d2bd8_row6_col7, #T_d2bd8_row11_col0, #T_d2bd8_row11_col5, #T_d2bd8_row11_col7, #T_d2bd8_row18_col0, #T_d2bd8_row18_col5, #T_d2bd8_row18_col7 {
   background-color: yellow;
   color: black;
   font-weight: bold;
   text-align: center;
 }
-#T_11f61_row2_col1 {
+#T_d2bd8_row2_col1 {
   background-color: #91e9bd;
   color: #000000;
   text-align: center;
 }
-#T_11f61_row2_col2 {
+#T_d2bd8_row2_col2 {
   background-color: #42d98e;
   color: #000000;
   text-align: center;
 }
-#T_11f61_row2_col6, #T_11f61_row4_col6, #T_11f61_row5_col6, #T_11f61_row6_col6, #T_11f61_row11_col6, #T_11f61_row18_col6 {
+#T_d2bd8_row2_col6, #T_d2bd8_row4_col6, #T_d2bd8_row5_col6, #T_d2bd8_row6_col6, #T_d2bd8_row11_col6, #T_d2bd8_row18_col6 {
   background-color: #b590ff;
   color: black;
   font-weight: bold;
   text-align: center;
 }
-#T_11f61_row4_col2 {
+#T_d2bd8_row4_col2 {
   background-color: #9bebc3;
   color: #000000;
   text-align: center;
 }
-#T_11f61_row5_col3 {
+#T_d2bd8_row5_col3 {
   background-color: #0fcf6f;
   color: #000000;
   text-align: center;
 }
-#T_11f61_row5_col4 {
+#T_d2bd8_row5_col4 {
   background-color: #f0fcf6;
   color: #000000;
   text-align: center;
 }
-#T_11f61_row6_col2 {
+#T_d2bd8_row6_col2 {
   background-color: #edfbf4;
   color: #000000;
   text-align: center;
 }
-#T_11f61_row6_col3 {
+#T_d2bd8_row6_col3 {
   background-color: #12d071;
   color: #000000;
   text-align: center;
 }
-#T_11f61_row9_col2 {
+#T_d2bd8_row9_col2 {
   background-color: #01cc67;
   color: #000000;
   text-align: center;
 }
-#T_11f61_row9_col3 {
+#T_d2bd8_row9_col3 {
   background-color: #fefffe;
   color: #000000;
   text-align: center;
 }
-#T_11f61_row10_col3 {
+#T_d2bd8_row10_col3 {
   background-color: #04cd68;
   color: #000000;
   text-align: center;
 }
-#T_11f61_row10_col4 {
+#T_d2bd8_row10_col4 {
   background-color: #fbfefd;
   color: #000000;
   text-align: center;
 }
-#T_11f61_row11_col3 {
+#T_d2bd8_row11_col3 {
   background-color: #0ecf6e;
   color: #000000;
   text-align: center;
 }
-#T_11f61_row11_col4 {
+#T_d2bd8_row11_col4 {
   background-color: #f1fcf7;
   color: #000000;
   text-align: center;
 }
-#T_11f61_row12_col2 {
+#T_d2bd8_row12_col2 {
   background-color: #03cd68;
   color: #000000;
   text-align: center;
 }
-#T_11f61_row12_col3 {
+#T_d2bd8_row12_col3 {
   background-color: #fcfefd;
   color: #000000;
   text-align: center;
 }
-#T_11f61_row18_col3 {
+#T_d2bd8_row18_col3 {
   background-color: #d0f6e3;
   color: #000000;
   text-align: center;
 }
-#T_11f61_row18_col4 {
+#T_d2bd8_row18_col4 {
   background-color: #2fd582;
   color: #000000;
   text-align: center;
 }
-#T_11f61_row19_col2 {
+#T_d2bd8_row19_col2 {
   background-color: #02cc67;
   color: #000000;
   text-align: center;
 }
-#T_11f61_row19_col3 {
+#T_d2bd8_row19_col3 {
   background-color: #fdfffe;
   color: #000000;
   text-align: center;
 }
 </style>
-<table id="T_11f61">
+<table id="T_d2bd8">
 <thead>
 <tr>
-<th class="col_heading level0 col0" id="T_11f61_level0_col0">y true</th>
-<th class="col_heading level0 col1" id="T_11f61_level0_col1">Prob Cass 0</th>
-<th class="col_heading level0 col2" id="T_11f61_level0_col2">Prob Cass 1</th>
-<th class="col_heading level0 col3" id="T_11f61_level0_col3">Prob Cass 2</th>
-<th class="col_heading level0 col4" id="T_11f61_level0_col4">Prob Cass 3</th>
-<th class="col_heading level0 col5" id="T_11f61_level0_col5">Prediction Set</th>
-<th class="col_heading level0 col6" id="T_11f61_level0_col6">Set size</th>
-<th class="col_heading level0 col7" id="T_11f61_level0_col7">Correct in set</th>
+<th class="col_heading level0 col0" id="T_d2bd8_level0_col0">y true</th>
+<th class="col_heading level0 col1" id="T_d2bd8_level0_col1">Prob Cass 0</th>
+<th class="col_heading level0 col2" id="T_d2bd8_level0_col2">Prob Cass 1</th>
+<th class="col_heading level0 col3" id="T_d2bd8_level0_col3">Prob Cass 2</th>
+<th class="col_heading level0 col4" id="T_d2bd8_level0_col4">Prob Cass 3</th>
+<th class="col_heading level0 col5" id="T_d2bd8_level0_col5">Prediction Set</th>
+<th class="col_heading level0 col6" id="T_d2bd8_level0_col6">Set size</th>
+<th class="col_heading level0 col7" id="T_d2bd8_level0_col7">Correct in set</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="data row0 col0" id="T_11f61_row0_col0">1</td>
-<td class="data row0 col1" id="T_11f61_row0_col1">0.00</td>
-<td class="data row0 col2" id="T_11f61_row0_col2">1.00</td>
-<td class="data row0 col3" id="T_11f61_row0_col3">0.00</td>
-<td class="data row0 col4" id="T_11f61_row0_col4">0.00</td>
-<td class="data row0 col5" id="T_11f61_row0_col5">{1}</td>
-<td class="data row0 col6" id="T_11f61_row0_col6">1</td>
-<td class="data row0 col7" id="T_11f61_row0_col7">True</td>
+<td class="data row0 col0" id="T_d2bd8_row0_col0">1</td>
+<td class="data row0 col1" id="T_d2bd8_row0_col1">0.00</td>
+<td class="data row0 col2" id="T_d2bd8_row0_col2">1.00</td>
+<td class="data row0 col3" id="T_d2bd8_row0_col3">0.00</td>
+<td class="data row0 col4" id="T_d2bd8_row0_col4">0.00</td>
+<td class="data row0 col5" id="T_d2bd8_row0_col5">{1}</td>
+<td class="data row0 col6" id="T_d2bd8_row0_col6">1</td>
+<td class="data row0 col7" id="T_d2bd8_row0_col7">True</td>
 </tr>
 <tr>
-<td class="data row1 col0" id="T_11f61_row1_col0">3</td>
-<td class="data row1 col1" id="T_11f61_row1_col1">0.00</td>
-<td class="data row1 col2" id="T_11f61_row1_col2">0.00</td>
-<td class="data row1 col3" id="T_11f61_row1_col3">0.00</td>
-<td class="data row1 col4" id="T_11f61_row1_col4">1.00</td>
-<td class="data row1 col5" id="T_11f61_row1_col5">{3}</td>
-<td class="data row1 col6" id="T_11f61_row1_col6">1</td>
-<td class="data row1 col7" id="T_11f61_row1_col7">True</td>
+<td class="data row1 col0" id="T_d2bd8_row1_col0">3</td>
+<td class="data row1 col1" id="T_d2bd8_row1_col1">0.00</td>
+<td class="data row1 col2" id="T_d2bd8_row1_col2">0.00</td>
+<td class="data row1 col3" id="T_d2bd8_row1_col3">0.00</td>
+<td class="data row1 col4" id="T_d2bd8_row1_col4">1.00</td>
+<td class="data row1 col5" id="T_d2bd8_row1_col5">{3}</td>
+<td class="data row1 col6" id="T_d2bd8_row1_col6">1</td>
+<td class="data row1 col7" id="T_d2bd8_row1_col7">True</td>
 </tr>
 <tr>
-<td class="data row2 col0" id="T_11f61_row2_col0">1</td>
-<td class="data row2 col1" id="T_11f61_row2_col1">0.26</td>
-<td class="data row2 col2" id="T_11f61_row2_col2">0.74</td>
-<td class="data row2 col3" id="T_11f61_row2_col3">0.00</td>
-<td class="data row2 col4" id="T_11f61_row2_col4">0.00</td>
-<td class="data row2 col5" id="T_11f61_row2_col5">{0, 1}</td>
-<td class="data row2 col6" id="T_11f61_row2_col6">2</td>
-<td class="data row2 col7" id="T_11f61_row2_col7">True</td>
+<td class="data row2 col0" id="T_d2bd8_row2_col0">1</td>
+<td class="data row2 col1" id="T_d2bd8_row2_col1">0.26</td>
+<td class="data row2 col2" id="T_d2bd8_row2_col2">0.74</td>
+<td class="data row2 col3" id="T_d2bd8_row2_col3">0.00</td>
+<td class="data row2 col4" id="T_d2bd8_row2_col4">0.00</td>
+<td class="data row2 col5" id="T_d2bd8_row2_col5">{0, 1}</td>
+<td class="data row2 col6" id="T_d2bd8_row2_col6">2</td>
+<td class="data row2 col7" id="T_d2bd8_row2_col7">True</td>
 </tr>
 <tr>
-<td class="data row3 col0" id="T_11f61_row3_col0">1</td>
-<td class="data row3 col1" id="T_11f61_row3_col1">0.00</td>
-<td class="data row3 col2" id="T_11f61_row3_col2">1.00</td>
-<td class="data row3 col3" id="T_11f61_row3_col3">0.00</td>
-<td class="data row3 col4" id="T_11f61_row3_col4">0.00</td>
-<td class="data row3 col5" id="T_11f61_row3_col5">{1}</td>
-<td class="data row3 col6" id="T_11f61_row3_col6">1</td>
-<td class="data row3 col7" id="T_11f61_row3_col7">True</td>
+<td class="data row3 col0" id="T_d2bd8_row3_col0">1</td>
+<td class="data row3 col1" id="T_d2bd8_row3_col1">0.00</td>
+<td class="data row3 col2" id="T_d2bd8_row3_col2">1.00</td>
+<td class="data row3 col3" id="T_d2bd8_row3_col3">0.00</td>
+<td class="data row3 col4" id="T_d2bd8_row3_col4">0.00</td>
+<td class="data row3 col5" id="T_d2bd8_row3_col5">{1}</td>
+<td class="data row3 col6" id="T_d2bd8_row3_col6">1</td>
+<td class="data row3 col7" id="T_d2bd8_row3_col7">True</td>
 </tr>
 <tr>
-<td class="data row4 col0" id="T_11f61_row4_col0">0</td>
-<td class="data row4 col1" id="T_11f61_row4_col1">0.61</td>
-<td class="data row4 col2" id="T_11f61_row4_col2">0.39</td>
-<td class="data row4 col3" id="T_11f61_row4_col3">0.00</td>
-<td class="data row4 col4" id="T_11f61_row4_col4">0.00</td>
-<td class="data row4 col5" id="T_11f61_row4_col5">{0, 1}</td>
-<td class="data row4 col6" id="T_11f61_row4_col6">2</td>
-<td class="data row4 col7" id="T_11f61_row4_col7">True</td>
+<td class="data row4 col0" id="T_d2bd8_row4_col0">0</td>
+<td class="data row4 col1" id="T_d2bd8_row4_col1">0.61</td>
+<td class="data row4 col2" id="T_d2bd8_row4_col2">0.39</td>
+<td class="data row4 col3" id="T_d2bd8_row4_col3">0.00</td>
+<td class="data row4 col4" id="T_d2bd8_row4_col4">0.00</td>
+<td class="data row4 col5" id="T_d2bd8_row4_col5">{0, 1}</td>
+<td class="data row4 col6" id="T_d2bd8_row4_col6">2</td>
+<td class="data row4 col7" id="T_d2bd8_row4_col7">True</td>
 </tr>
 <tr>
-<td class="data row5 col0" id="T_11f61_row5_col0">2</td>
-<td class="data row5 col1" id="T_11f61_row5_col1">0.00</td>
-<td class="data row5 col2" id="T_11f61_row5_col2">0.00</td>
-<td class="data row5 col3" id="T_11f61_row5_col3">0.94</td>
-<td class="data row5 col4" id="T_11f61_row5_col4">0.06</td>
-<td class="data row5 col5" id="T_11f61_row5_col5">{2, 3}</td>
-<td class="data row5 col6" id="T_11f61_row5_col6">2</td>
-<td class="data row5 col7" id="T_11f61_row5_col7">True</td>
+<td class="data row5 col0" id="T_d2bd8_row5_col0">2</td>
+<td class="data row5 col1" id="T_d2bd8_row5_col1">0.00</td>
+<td class="data row5 col2" id="T_d2bd8_row5_col2">0.00</td>
+<td class="data row5 col3" id="T_d2bd8_row5_col3">0.94</td>
+<td class="data row5 col4" id="T_d2bd8_row5_col4">0.06</td>
+<td class="data row5 col5" id="T_d2bd8_row5_col5">{2, 3}</td>
+<td class="data row5 col6" id="T_d2bd8_row5_col6">2</td>
+<td class="data row5 col7" id="T_d2bd8_row5_col7">True</td>
 </tr>
 <tr>
-<td class="data row6 col0" id="T_11f61_row6_col0">2</td>
-<td class="data row6 col1" id="T_11f61_row6_col1">0.00</td>
-<td class="data row6 col2" id="T_11f61_row6_col2">0.07</td>
-<td class="data row6 col3" id="T_11f61_row6_col3">0.93</td>
-<td class="data row6 col4" id="T_11f61_row6_col4">0.00</td>
-<td class="data row6 col5" id="T_11f61_row6_col5">{1, 2}</td>
-<td class="data row6 col6" id="T_11f61_row6_col6">2</td>
-<td class="data row6 col7" id="T_11f61_row6_col7">True</td>
+<td class="data row6 col0" id="T_d2bd8_row6_col0">2</td>
+<td class="data row6 col1" id="T_d2bd8_row6_col1">0.00</td>
+<td class="data row6 col2" id="T_d2bd8_row6_col2">0.07</td>
+<td class="data row6 col3" id="T_d2bd8_row6_col3">0.93</td>
+<td class="data row6 col4" id="T_d2bd8_row6_col4">0.00</td>
+<td class="data row6 col5" id="T_d2bd8_row6_col5">{1, 2}</td>
+<td class="data row6 col6" id="T_d2bd8_row6_col6">2</td>
+<td class="data row6 col7" id="T_d2bd8_row6_col7">True</td>
 </tr>
 <tr>
-<td class="data row7 col0" id="T_11f61_row7_col0">3</td>
-<td class="data row7 col1" id="T_11f61_row7_col1">0.00</td>
-<td class="data row7 col2" id="T_11f61_row7_col2">0.00</td>
-<td class="data row7 col3" id="T_11f61_row7_col3">0.00</td>
-<td class="data row7 col4" id="T_11f61_row7_col4">1.00</td>
-<td class="data row7 col5" id="T_11f61_row7_col5">{3}</td>
-<td class="data row7 col6" id="T_11f61_row7_col6">1</td>
-<td class="data row7 col7" id="T_11f61_row7_col7">True</td>
+<td class="data row7 col0" id="T_d2bd8_row7_col0">3</td>
+<td class="data row7 col1" id="T_d2bd8_row7_col1">0.00</td>
+<td class="data row7 col2" id="T_d2bd8_row7_col2">0.00</td>
+<td class="data row7 col3" id="T_d2bd8_row7_col3">0.00</td>
+<td class="data row7 col4" id="T_d2bd8_row7_col4">1.00</td>
+<td class="data row7 col5" id="T_d2bd8_row7_col5">{3}</td>
+<td class="data row7 col6" id="T_d2bd8_row7_col6">1</td>
+<td class="data row7 col7" id="T_d2bd8_row7_col7">True</td>
 </tr>
 <tr>
-<td class="data row8 col0" id="T_11f61_row8_col0">1</td>
-<td class="data row8 col1" id="T_11f61_row8_col1">0.00</td>
-<td class="data row8 col2" id="T_11f61_row8_col2">1.00</td>
-<td class="data row8 col3" id="T_11f61_row8_col3">0.00</td>
-<td class="data row8 col4" id="T_11f61_row8_col4">0.00</td>
-<td class="data row8 col5" id="T_11f61_row8_col5">{1}</td>
-<td class="data row8 col6" id="T_11f61_row8_col6">1</td>
-<td class="data row8 col7" id="T_11f61_row8_col7">True</td>
+<td class="data row8 col0" id="T_d2bd8_row8_col0">1</td>
+<td class="data row8 col1" id="T_d2bd8_row8_col1">0.00</td>
+<td class="data row8 col2" id="T_d2bd8_row8_col2">1.00</td>
+<td class="data row8 col3" id="T_d2bd8_row8_col3">0.00</td>
+<td class="data row8 col4" id="T_d2bd8_row8_col4">0.00</td>
+<td class="data row8 col5" id="T_d2bd8_row8_col5">{1}</td>
+<td class="data row8 col6" id="T_d2bd8_row8_col6">1</td>
+<td class="data row8 col7" id="T_d2bd8_row8_col7">True</td>
 </tr>
 <tr>
-<td class="data row9 col0" id="T_11f61_row9_col0">1</td>
-<td class="data row9 col1" id="T_11f61_row9_col1">0.00</td>
-<td class="data row9 col2" id="T_11f61_row9_col2">1.00</td>
-<td class="data row9 col3" id="T_11f61_row9_col3">0.00</td>
-<td class="data row9 col4" id="T_11f61_row9_col4">0.00</td>
-<td class="data row9 col5" id="T_11f61_row9_col5">{1}</td>
-<td class="data row9 col6" id="T_11f61_row9_col6">1</td>
-<td class="data row9 col7" id="T_11f61_row9_col7">True</td>
+<td class="data row9 col0" id="T_d2bd8_row9_col0">1</td>
+<td class="data row9 col1" id="T_d2bd8_row9_col1">0.00</td>
+<td class="data row9 col2" id="T_d2bd8_row9_col2">1.00</td>
+<td class="data row9 col3" id="T_d2bd8_row9_col3">0.00</td>
+<td class="data row9 col4" id="T_d2bd8_row9_col4">0.00</td>
+<td class="data row9 col5" id="T_d2bd8_row9_col5">{1}</td>
+<td class="data row9 col6" id="T_d2bd8_row9_col6">1</td>
+<td class="data row9 col7" id="T_d2bd8_row9_col7">True</td>
 </tr>
 <tr>
-<td class="data row10 col0" id="T_11f61_row10_col0">2</td>
-<td class="data row10 col1" id="T_11f61_row10_col1">0.00</td>
-<td class="data row10 col2" id="T_11f61_row10_col2">0.00</td>
-<td class="data row10 col3" id="T_11f61_row10_col3">0.98</td>
-<td class="data row10 col4" id="T_11f61_row10_col4">0.02</td>
-<td class="data row10 col5" id="T_11f61_row10_col5">{2}</td>
-<td class="data row10 col6" id="T_11f61_row10_col6">1</td>
-<td class="data row10 col7" id="T_11f61_row10_col7">True</td>
+<td class="data row10 col0" id="T_d2bd8_row10_col0">2</td>
+<td class="data row10 col1" id="T_d2bd8_row10_col1">0.00</td>
+<td class="data row10 col2" id="T_d2bd8_row10_col2">0.00</td>
+<td class="data row10 col3" id="T_d2bd8_row10_col3">0.98</td>
+<td class="data row10 col4" id="T_d2bd8_row10_col4">0.02</td>
+<td class="data row10 col5" id="T_d2bd8_row10_col5">{2}</td>
+<td class="data row10 col6" id="T_d2bd8_row10_col6">1</td>
+<td class="data row10 col7" id="T_d2bd8_row10_col7">True</td>
 </tr>
 <tr>
-<td class="data row11 col0" id="T_11f61_row11_col0">3</td>
-<td class="data row11 col1" id="T_11f61_row11_col1">0.00</td>
-<td class="data row11 col2" id="T_11f61_row11_col2">0.00</td>
-<td class="data row11 col3" id="T_11f61_row11_col3">0.94</td>
-<td class="data row11 col4" id="T_11f61_row11_col4">0.06</td>
-<td class="data row11 col5" id="T_11f61_row11_col5">{2, 3}</td>
-<td class="data row11 col6" id="T_11f61_row11_col6">2</td>
-<td class="data row11 col7" id="T_11f61_row11_col7">True</td>
+<td class="data row11 col0" id="T_d2bd8_row11_col0">3</td>
+<td class="data row11 col1" id="T_d2bd8_row11_col1">0.00</td>
+<td class="data row11 col2" id="T_d2bd8_row11_col2">0.00</td>
+<td class="data row11 col3" id="T_d2bd8_row11_col3">0.94</td>
+<td class="data row11 col4" id="T_d2bd8_row11_col4">0.06</td>
+<td class="data row11 col5" id="T_d2bd8_row11_col5">{2, 3}</td>
+<td class="data row11 col6" id="T_d2bd8_row11_col6">2</td>
+<td class="data row11 col7" id="T_d2bd8_row11_col7">True</td>
 </tr>
 <tr>
-<td class="data row12 col0" id="T_11f61_row12_col0">1</td>
-<td class="data row12 col1" id="T_11f61_row12_col1">0.00</td>
-<td class="data row12 col2" id="T_11f61_row12_col2">0.99</td>
-<td class="data row12 col3" id="T_11f61_row12_col3">0.01</td>
-<td class="data row12 col4" id="T_11f61_row12_col4">0.00</td>
-<td class="data row12 col5" id="T_11f61_row12_col5">{1}</td>
-<td class="data row12 col6" id="T_11f61_row12_col6">1</td>
-<td class="data row12 col7" id="T_11f61_row12_col7">True</td>
+<td class="data row12 col0" id="T_d2bd8_row12_col0">1</td>
+<td class="data row12 col1" id="T_d2bd8_row12_col1">0.00</td>
+<td class="data row12 col2" id="T_d2bd8_row12_col2">0.99</td>
+<td class="data row12 col3" id="T_d2bd8_row12_col3">0.01</td>
+<td class="data row12 col4" id="T_d2bd8_row12_col4">0.00</td>
+<td class="data row12 col5" id="T_d2bd8_row12_col5">{1}</td>
+<td class="data row12 col6" id="T_d2bd8_row12_col6">1</td>
+<td class="data row12 col7" id="T_d2bd8_row12_col7">True</td>
 </tr>
 <tr>
-<td class="data row13 col0" id="T_11f61_row13_col0">2</td>
-<td class="data row13 col1" id="T_11f61_row13_col1">0.00</td>
-<td class="data row13 col2" id="T_11f61_row13_col2">0.00</td>
-<td class="data row13 col3" id="T_11f61_row13_col3">1.00</td>
-<td class="data row13 col4" id="T_11f61_row13_col4">0.00</td>
-<td class="data row13 col5" id="T_11f61_row13_col5">{2}</td>
-<td class="data row13 col6" id="T_11f61_row13_col6">1</td>
-<td class="data row13 col7" id="T_11f61_row13_col7">True</td>
+<td class="data row13 col0" id="T_d2bd8_row13_col0">2</td>
+<td class="data row13 col1" id="T_d2bd8_row13_col1">0.00</td>
+<td class="data row13 col2" id="T_d2bd8_row13_col2">0.00</td>
+<td class="data row13 col3" id="T_d2bd8_row13_col3">1.00</td>
+<td class="data row13 col4" id="T_d2bd8_row13_col4">0.00</td>
+<td class="data row13 col5" id="T_d2bd8_row13_col5">{2}</td>
+<td class="data row13 col6" id="T_d2bd8_row13_col6">1</td>
+<td class="data row13 col7" id="T_d2bd8_row13_col7">True</td>
 </tr>
 <tr>
-<td class="data row14 col0" id="T_11f61_row14_col0">1</td>
-<td class="data row14 col1" id="T_11f61_row14_col1">0.00</td>
-<td class="data row14 col2" id="T_11f61_row14_col2">1.00</td>
-<td class="data row14 col3" id="T_11f61_row14_col3">0.00</td>
-<td class="data row14 col4" id="T_11f61_row14_col4">0.00</td>
-<td class="data row14 col5" id="T_11f61_row14_col5">{1}</td>
-<td class="data row14 col6" id="T_11f61_row14_col6">1</td>
-<td class="data row14 col7" id="T_11f61_row14_col7">True</td>
+<td class="data row14 col0" id="T_d2bd8_row14_col0">1</td>
+<td class="data row14 col1" id="T_d2bd8_row14_col1">0.00</td>
+<td class="data row14 col2" id="T_d2bd8_row14_col2">1.00</td>
+<td class="data row14 col3" id="T_d2bd8_row14_col3">0.00</td>
+<td class="data row14 col4" id="T_d2bd8_row14_col4">0.00</td>
+<td class="data row14 col5" id="T_d2bd8_row14_col5">{1}</td>
+<td class="data row14 col6" id="T_d2bd8_row14_col6">1</td>
+<td class="data row14 col7" id="T_d2bd8_row14_col7">True</td>
 </tr>
 <tr>
-<td class="data row15 col0" id="T_11f61_row15_col0">2</td>
-<td class="data row15 col1" id="T_11f61_row15_col1">0.00</td>
-<td class="data row15 col2" id="T_11f61_row15_col2">0.00</td>
-<td class="data row15 col3" id="T_11f61_row15_col3">1.00</td>
-<td class="data row15 col4" id="T_11f61_row15_col4">0.00</td>
-<td class="data row15 col5" id="T_11f61_row15_col5">{2}</td>
-<td class="data row15 col6" id="T_11f61_row15_col6">1</td>
-<td class="data row15 col7" id="T_11f61_row15_col7">True</td>
+<td class="data row15 col0" id="T_d2bd8_row15_col0">2</td>
+<td class="data row15 col1" id="T_d2bd8_row15_col1">0.00</td>
+<td class="data row15 col2" id="T_d2bd8_row15_col2">0.00</td>
+<td class="data row15 col3" id="T_d2bd8_row15_col3">1.00</td>
+<td class="data row15 col4" id="T_d2bd8_row15_col4">0.00</td>
+<td class="data row15 col5" id="T_d2bd8_row15_col5">{2}</td>
+<td class="data row15 col6" id="T_d2bd8_row15_col6">1</td>
+<td class="data row15 col7" id="T_d2bd8_row15_col7">True</td>
 </tr>
 <tr>
-<td class="data row16 col0" id="T_11f61_row16_col0">2</td>
-<td class="data row16 col1" id="T_11f61_row16_col1">0.00</td>
-<td class="data row16 col2" id="T_11f61_row16_col2">0.00</td>
-<td class="data row16 col3" id="T_11f61_row16_col3">1.00</td>
-<td class="data row16 col4" id="T_11f61_row16_col4">0.00</td>
-<td class="data row16 col5" id="T_11f61_row16_col5">{2}</td>
-<td class="data row16 col6" id="T_11f61_row16_col6">1</td>
-<td class="data row16 col7" id="T_11f61_row16_col7">True</td>
+<td class="data row16 col0" id="T_d2bd8_row16_col0">2</td>
+<td class="data row16 col1" id="T_d2bd8_row16_col1">0.00</td>
+<td class="data row16 col2" id="T_d2bd8_row16_col2">0.00</td>
+<td class="data row16 col3" id="T_d2bd8_row16_col3">1.00</td>
+<td class="data row16 col4" id="T_d2bd8_row16_col4">0.00</td>
+<td class="data row16 col5" id="T_d2bd8_row16_col5">{2}</td>
+<td class="data row16 col6" id="T_d2bd8_row16_col6">1</td>
+<td class="data row16 col7" id="T_d2bd8_row16_col7">True</td>
 </tr>
 <tr>
-<td class="data row17 col0" id="T_11f61_row17_col0">1</td>
-<td class="data row17 col1" id="T_11f61_row17_col1">0.00</td>
-<td class="data row17 col2" id="T_11f61_row17_col2">1.00</td>
-<td class="data row17 col3" id="T_11f61_row17_col3">0.00</td>
-<td class="data row17 col4" id="T_11f61_row17_col4">0.00</td>
-<td class="data row17 col5" id="T_11f61_row17_col5">{1}</td>
-<td class="data row17 col6" id="T_11f61_row17_col6">1</td>
-<td class="data row17 col7" id="T_11f61_row17_col7">True</td>
+<td class="data row17 col0" id="T_d2bd8_row17_col0">1</td>
+<td class="data row17 col1" id="T_d2bd8_row17_col1">0.00</td>
+<td class="data row17 col2" id="T_d2bd8_row17_col2">1.00</td>
+<td class="data row17 col3" id="T_d2bd8_row17_col3">0.00</td>
+<td class="data row17 col4" id="T_d2bd8_row17_col4">0.00</td>
+<td class="data row17 col5" id="T_d2bd8_row17_col5">{1}</td>
+<td class="data row17 col6" id="T_d2bd8_row17_col6">1</td>
+<td class="data row17 col7" id="T_d2bd8_row17_col7">True</td>
 </tr>
 <tr>
-<td class="data row18 col0" id="T_11f61_row18_col0">3</td>
-<td class="data row18 col1" id="T_11f61_row18_col1">0.00</td>
-<td class="data row18 col2" id="T_11f61_row18_col2">0.00</td>
-<td class="data row18 col3" id="T_11f61_row18_col3">0.19</td>
-<td class="data row18 col4" id="T_11f61_row18_col4">0.81</td>
-<td class="data row18 col5" id="T_11f61_row18_col5">{2, 3}</td>
-<td class="data row18 col6" id="T_11f61_row18_col6">2</td>
-<td class="data row18 col7" id="T_11f61_row18_col7">True</td>
+<td class="data row18 col0" id="T_d2bd8_row18_col0">3</td>
+<td class="data row18 col1" id="T_d2bd8_row18_col1">0.00</td>
+<td class="data row18 col2" id="T_d2bd8_row18_col2">0.00</td>
+<td class="data row18 col3" id="T_d2bd8_row18_col3">0.19</td>
+<td class="data row18 col4" id="T_d2bd8_row18_col4">0.81</td>
+<td class="data row18 col5" id="T_d2bd8_row18_col5">{2, 3}</td>
+<td class="data row18 col6" id="T_d2bd8_row18_col6">2</td>
+<td class="data row18 col7" id="T_d2bd8_row18_col7">True</td>
 </tr>
 <tr>
-<td class="data row19 col0" id="T_11f61_row19_col0">1</td>
-<td class="data row19 col1" id="T_11f61_row19_col1">0.00</td>
-<td class="data row19 col2" id="T_11f61_row19_col2">0.99</td>
-<td class="data row19 col3" id="T_11f61_row19_col3">0.01</td>
-<td class="data row19 col4" id="T_11f61_row19_col4">0.00</td>
-<td class="data row19 col5" id="T_11f61_row19_col5">{1}</td>
-<td class="data row19 col6" id="T_11f61_row19_col6">1</td>
-<td class="data row19 col7" id="T_11f61_row19_col7">True</td>
+<td class="data row19 col0" id="T_d2bd8_row19_col0">1</td>
+<td class="data row19 col1" id="T_d2bd8_row19_col1">0.00</td>
+<td class="data row19 col2" id="T_d2bd8_row19_col2">0.99</td>
+<td class="data row19 col3" id="T_d2bd8_row19_col3">0.01</td>
+<td class="data row19 col4" id="T_d2bd8_row19_col4">0.00</td>
+<td class="data row19 col5" id="T_d2bd8_row19_col5">{1}</td>
+<td class="data row19 col6" id="T_d2bd8_row19_col6">1</td>
+<td class="data row19 col7" id="T_d2bd8_row19_col7">True</td>
 </tr>
 </tbody>
 </table>
@@ -10427,19 +10420,18 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </li>
 <li><strong>ĐIỂM MẤU CHỐT</strong><ul>
 <li>Mapie giúp ta trả về những dòng màu vàng để con người xem xét thay vì dự báo 1 nhãn và chấp nhận sai số</li>
-<li>Chuyển hóa "sai số chấp nhận" (màu đỏ alpha = 0.01) thành "rủi ro phát hiện" / "hồ sơ xem xét" (màu vàng alpha = 0.001)</li>
-<li>Khi độ tin cậy tăng thì mô hình sẽ phải tạo ra thêm nhiều Pred Set chứa từ 2 nhãn trở lên để tránh sai số</li>
+<li>Chuyển hóa <strong>"sai số chấp nhận"</strong> (màu đỏ alpha = 0.01) thành <strong>"rủi ro phát hiện" / "hồ sơ xem xét"</strong> (màu vàng alpha = 0.001)</li>
 </ul>
 </li>
 <li><strong>SỰ ĐÁNH ĐỔI</strong><ul>
-<li>Thực chất mô hình lõi xgb ban đầu (khi chưa Mapie) chính là trả về Pred set chỉ chứa 1 nhãn y_pred, và chỉ tô màu xanh &amp; đỏ cho bảng này</li>
-<li>Mapie dựa vào độ tin cậy giúp cho mô hình trả về những thằng phân vân, giảm sai số chấp nhận màu đỏ</li>
+<li>Thực chất mô hình lõi <strong>xgb_model</strong> ban đầu chính là trả về Pred set chỉ chứa 1 nhãn y_pred, và chỉ tô màu xanh &amp; đỏ cho bảng này</li>
+<li>Khi độ tin cậy tăng thì mô hình "sợ sai" nên phải tạo ra thêm nhiều Pred Set chứa từ 2 nhãn trở lên</li>
 <li>Vậy là ta chấp nhận thêm nhiều dòng bị trả về xem xét để giảm sai số chấp nhận</li>
 <li>Tuy nhiên điều này làm cho nhiều dòng đáng ra là "trúng phóc" rồi (màu xanh alpha = 0.01) lại bị trở thành "hồ sơ xem xét" (màu vàng alpha = 0.001)</li>
 </ul>
 </li>
 <li><strong>CÂU HỎI VỀ CHÍNH SÁCH</strong><ul>
-<li>Vậy thì nên Setting alpha &amp; độ tin cậy như nào để mô hình cần bằng giữa việc trả về dự báo và việc giảm sai số chấp nhận</li>
+<li>Vậy thì nên Setting alpha &amp; độ tin cậy như nào để mô hình cần bằng trong việc tự tin "trả về hồ sơ" vs "giảm sai số"</li>
 <li>Ta tìm bằng cách: tại mọi alpha, ta tính<ul>
 <li>Độ bao phủ - coverage</li>
 <li>Số nhãn trả về trung bình - width</li>
@@ -10457,7 +10449,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [87]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [22]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">mapie.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">classification_coverage_score</span><span class="p">,</span> <span class="n">classification_mean_width_score</span>
@@ -10504,75 +10496,75 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
 <style type="text/css">
 </style>
-<table id="T_3fa4d">
+<table id="T_05f7d">
 <thead>
 <tr>
 <th class="blank level0"> </th>
-<th class="col_heading level0 col0" id="T_3fa4d_level0_col0">alpha</th>
-<th class="col_heading level0 col1" id="T_3fa4d_level0_col1">Coverage</th>
-<th class="col_heading level0 col2" id="T_3fa4d_level0_col2">Avg_Set_Width</th>
+<th class="col_heading level0 col0" id="T_05f7d_level0_col0">alpha</th>
+<th class="col_heading level0 col1" id="T_05f7d_level0_col1">Coverage</th>
+<th class="col_heading level0 col2" id="T_05f7d_level0_col2">Avg_Set_Width</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<th class="row_heading level0 row0" id="T_3fa4d_level0_row0">0</th>
-<td class="data row0 col0" id="T_3fa4d_row0_col0">0.005</td>
-<td class="data row0 col1" id="T_3fa4d_row0_col1">0.9951</td>
-<td class="data row0 col2" id="T_3fa4d_row0_col2">1.13</td>
+<th class="row_heading level0 row0" id="T_05f7d_level0_row0">0</th>
+<td class="data row0 col0" id="T_05f7d_row0_col0">0.005</td>
+<td class="data row0 col1" id="T_05f7d_row0_col1">0.9951</td>
+<td class="data row0 col2" id="T_05f7d_row0_col2">1.13</td>
 </tr>
 <tr>
-<th class="row_heading level0 row1" id="T_3fa4d_level0_row1">1</th>
-<td class="data row1 col0" id="T_3fa4d_row1_col0">0.010</td>
-<td class="data row1 col1" id="T_3fa4d_row1_col1">0.9899</td>
-<td class="data row1 col2" id="T_3fa4d_row1_col2">1.08</td>
+<th class="row_heading level0 row1" id="T_05f7d_level0_row1">1</th>
+<td class="data row1 col0" id="T_05f7d_row1_col0">0.010</td>
+<td class="data row1 col1" id="T_05f7d_row1_col1">0.9899</td>
+<td class="data row1 col2" id="T_05f7d_row1_col2">1.08</td>
 </tr>
 <tr>
-<th class="row_heading level0 row2" id="T_3fa4d_level0_row2">2</th>
-<td class="data row2 col0" id="T_3fa4d_row2_col0">0.015</td>
-<td class="data row2 col1" id="T_3fa4d_row2_col1">0.9848</td>
-<td class="data row2 col2" id="T_3fa4d_row2_col2">1.06</td>
+<th class="row_heading level0 row2" id="T_05f7d_level0_row2">2</th>
+<td class="data row2 col0" id="T_05f7d_row2_col0">0.015</td>
+<td class="data row2 col1" id="T_05f7d_row2_col1">0.9848</td>
+<td class="data row2 col2" id="T_05f7d_row2_col2">1.06</td>
 </tr>
 <tr>
-<th class="row_heading level0 row3" id="T_3fa4d_level0_row3">3</th>
-<td class="data row3 col0" id="T_3fa4d_row3_col0">0.020</td>
-<td class="data row3 col1" id="T_3fa4d_row3_col1">0.9807</td>
-<td class="data row3 col2" id="T_3fa4d_row3_col2">1.04</td>
+<th class="row_heading level0 row3" id="T_05f7d_level0_row3">3</th>
+<td class="data row3 col0" id="T_05f7d_row3_col0">0.020</td>
+<td class="data row3 col1" id="T_05f7d_row3_col1">0.9807</td>
+<td class="data row3 col2" id="T_05f7d_row3_col2">1.04</td>
 </tr>
 <tr>
-<th class="row_heading level0 row4" id="T_3fa4d_level0_row4">4</th>
-<td class="data row4 col0" id="T_3fa4d_row4_col0">0.025</td>
-<td class="data row4 col1" id="T_3fa4d_row4_col1">0.9750</td>
-<td class="data row4 col2" id="T_3fa4d_row4_col2">1.03</td>
+<th class="row_heading level0 row4" id="T_05f7d_level0_row4">4</th>
+<td class="data row4 col0" id="T_05f7d_row4_col0">0.025</td>
+<td class="data row4 col1" id="T_05f7d_row4_col1">0.9750</td>
+<td class="data row4 col2" id="T_05f7d_row4_col2">1.03</td>
 </tr>
 <tr>
-<th class="row_heading level0 row5" id="T_3fa4d_level0_row5">5</th>
-<td class="data row5 col0" id="T_3fa4d_row5_col0">0.030</td>
-<td class="data row5 col1" id="T_3fa4d_row5_col1">0.9704</td>
-<td class="data row5 col2" id="T_3fa4d_row5_col2">1.01</td>
+<th class="row_heading level0 row5" id="T_05f7d_level0_row5">5</th>
+<td class="data row5 col0" id="T_05f7d_row5_col0">0.030</td>
+<td class="data row5 col1" id="T_05f7d_row5_col1">0.9704</td>
+<td class="data row5 col2" id="T_05f7d_row5_col2">1.01</td>
 </tr>
 <tr>
-<th class="row_heading level0 row6" id="T_3fa4d_level0_row6">6</th>
-<td class="data row6 col0" id="T_3fa4d_row6_col0">0.035</td>
-<td class="data row6 col1" id="T_3fa4d_row6_col1">0.9661</td>
-<td class="data row6 col2" id="T_3fa4d_row6_col2">1.00</td>
+<th class="row_heading level0 row6" id="T_05f7d_level0_row6">6</th>
+<td class="data row6 col0" id="T_05f7d_row6_col0">0.035</td>
+<td class="data row6 col1" id="T_05f7d_row6_col1">0.9661</td>
+<td class="data row6 col2" id="T_05f7d_row6_col2">1.00</td>
 </tr>
 <tr>
-<th class="row_heading level0 row7" id="T_3fa4d_level0_row7">7</th>
-<td class="data row7 col0" id="T_3fa4d_row7_col0">0.040</td>
-<td class="data row7 col1" id="T_3fa4d_row7_col1">0.9614</td>
-<td class="data row7 col2" id="T_3fa4d_row7_col2">0.99</td>
+<th class="row_heading level0 row7" id="T_05f7d_level0_row7">7</th>
+<td class="data row7 col0" id="T_05f7d_row7_col0">0.040</td>
+<td class="data row7 col1" id="T_05f7d_row7_col1">0.9614</td>
+<td class="data row7 col2" id="T_05f7d_row7_col2">0.99</td>
 </tr>
 <tr>
-<th class="row_heading level0 row8" id="T_3fa4d_level0_row8">8</th>
-<td class="data row8 col0" id="T_3fa4d_row8_col0">0.045</td>
-<td class="data row8 col1" id="T_3fa4d_row8_col1">0.9554</td>
-<td class="data row8 col2" id="T_3fa4d_row8_col2">0.98</td>
+<th class="row_heading level0 row8" id="T_05f7d_level0_row8">8</th>
+<td class="data row8 col0" id="T_05f7d_row8_col0">0.045</td>
+<td class="data row8 col1" id="T_05f7d_row8_col1">0.9554</td>
+<td class="data row8 col2" id="T_05f7d_row8_col2">0.98</td>
 </tr>
 <tr>
-<th class="row_heading level0 row9" id="T_3fa4d_level0_row9">9</th>
-<td class="data row9 col0" id="T_3fa4d_row9_col0">0.050</td>
-<td class="data row9 col1" id="T_3fa4d_row9_col1">0.9495</td>
-<td class="data row9 col2" id="T_3fa4d_row9_col2">0.97</td>
+<th class="row_heading level0 row9" id="T_05f7d_level0_row9">9</th>
+<td class="data row9 col0" id="T_05f7d_row9_col0">0.050</td>
+<td class="data row9 col1" id="T_05f7d_row9_col1">0.9495</td>
+<td class="data row9 col2" id="T_05f7d_row9_col2">0.97</td>
 </tr>
 </tbody>
 </table>
@@ -10589,33 +10581,32 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <ul>
 <li><strong>COVERAGE - ĐỘ BAO PHỦ</strong><ul>
-<li>Tại 1 dòng bất kỳ, Pred Set chứa y_test thì trả về True, rồi tính True/All</li>
-<li>Càng nhiều dòng có Pred Set chứa y_test thì Coverage càng cao</li>
-<li>Nói dễ hiểu, đây là "độ chính xác trong việc bao phủ: dự báo ra được tập nhãn có chứa nhãn thật"</li>
+<li>Tại 1 dòng bất kỳ, Pred Set "chứa" y_test thì trả về True, rồi tính True/All</li>
+<li>Càng nhiều dòng có Pred Set "chứa" y_test thì Coverage càng cao</li>
+<li>Nói dễ hiểu, đây là <em><strong>"độ chính xác trong việc bao phủ: dự báo ra được tập nhãn có chứa nhãn thật"</strong></em></li>
 </ul>
 </li>
 <li><strong>WIDTH - SỐ NHÃN DỰ BÁO TRUNG BÌNH</strong><ul>
 <li>Tính trung bình của Set Size</li>
 <li>Càng nhiều dòng có Set Size &gt; 1 thì Width càng tăng</li>
-<li>Nói dễ hiểu, đây là "số nhãn được trả về trung bình"</li>
+<li>Nói dễ hiểu, đây là <em><strong>"số nhãn được trả về trung bình"</strong></em></li>
 </ul>
 </li>
 <li><strong>GIẢI THÍCH Ý NGHĨA BẢNG</strong><ul>
-<li>Tại mọi alpha, ta thấy coverage xấp xỉ độ tin cậy (1-alpha)<ul>
+<li><strong>Tại mọi alpha:</strong> ta thấy coverage xấp xỉ độ tin cậy 1-alpha<ul>
 <li>Đây là điều tự nhiên vì Mapie dùng chính ý tưởng từ độ tin cậy để tạo hộp đen</li>
-<li>Khi ta chạy lệnh .preditct (alph=...) thì chính là mapie dùng đúng phân vị 1-alpha của phân phối sai số (nonconformity) để tạo ra khoảng sai số bao phủ (Q)</li>
-<li>Tóm lại, về mặt lý thuyết thì coverage sẽ xấp xỉ độ tin cậy luôn, đây chính là % số dòng màu xanh</li>
+<li>Về mặt lý thuyết: coverage sẽ luôn xấp xỉ độ tin cậy nếu ta setting mô hình mapie đúng, đây chính là % số dòng màu xanh</li>
 </ul>
 </li>
-<li>Tại alpha 0.035<ul>
-<li>Width = 1, tức là trung bình Set size = 1, tức là trung bình mỗi dòng mô hình chỉ dự báo 1 nhãn cho Pred set</li>
-<li>Đây chính là trường hợp lõi xgb ban đầu, với độ chính xác là 96,6% dòng màu xanh, còn lại là màu đỏ, "gần như không có lõi màu vàng"</li>
-<li>Thực ra là có nhưng rất hiếm, cực hiếm dòng màu vàng, bản chất vẫn chính là lõi xgb ban đầu</li>
+<li><strong>Tại alpha 0.035:</strong> ta thấy width = 1<ul>
+<li>Tức là trung bình mỗi dòng mô hình chỉ dự báo 1 nhãn cho Pred set</li>
+<li>Đây chính là trường hợp lõi xgb_model ban đầu, với độ chính xác là 96,6% dòng màu xanh, còn lại là màu đỏ, không có lõi màu vàng</li>
+<li>Thực ra là có dòng màu vàng nhưng cực hiếm - Width ~ 1.0001</li>
 </ul>
 </li>
-<li>Khi giảm alpha, tăng độ tin cậy<ul>
-<li>Càng tăng độ tin cậy/độ chính xác thì mô hình càng phải mở rộng sai số bao phủ, khiến tăng nhiều Pred set 2 nhãn, tức tăng số hồ sơ trả về</li>
-<li>Coverage càng gần 100% (không bao giờ đạt được), thì mô hình càng sợ sai, càng trả về nhiều Pred set 2 nhãn, thậm chí 3-4 nhãn</li>
+<li><strong>Khi giảm alpha - tăng độ tin cậy:</strong> ta thấy width tăng mạnh dần<ul>
+<li>Mô hình sợ sai, phải mở rộng sai số Q 2 phía để bao phủ đủ % trường hợp - tăng nhiều Pred set 2 nhãn - tăng số hồ sơ trả về</li>
+<li>Coverage càng gần 100% (không bao giờ đạt được), Width tăng càng mạnh</li>
 </ul>
 </li>
 </ul>
@@ -10629,7 +10620,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [88]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [23]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Vẽ 2 biểu đồ tách biệt</span>
@@ -10681,28 +10672,43 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <ul>
 <li><strong>ĐỒ THỊ COVERAGE &amp; WIDTH THEO ĐỘ TIN CẬY</strong><ul>
 <li>Khi fit mapie, có thể người thực hành sẽ nhầm ở đâu đó, ta cần in ra đồ thị coverage và width để kiểm tra</li>
-<li>Lý tưởng với hầu hết cái bài:<ul>
-<li>Coverage xấp xỉ, trùng với đường độ tin cậy 1-alpha theo lý thuyết</li>
-<li>Width có đoạn cuối bị vểnh lên tăng mạnh, đây chính là hiện tượng trả về quá nhiều nhãn do mong muốn độ tin cậy tiệm cận lên 100% đã nêu ở trên</li>
+<li>Lý tưởng với hầu hết bộ dữ liệu:<ul>
+<li>Coverage xấp xỉ/trùng với độ tin cậy 1-alpha</li>
+<li>Width có đoạn cuối bị vểnh lên tăng mạnh<ul>
+<li>Đây chính là hiện tượng trả về quá nhiều nhãn do mong muốn độ tin cậy tiệm cận lên 100% đã nêu ở trên</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
 </li>
 <li><strong>VÍ VON DỄ HIỂU</strong><ul>
-<li>Muốn ông bác sĩ đa khoa đoán đúng bệnh cho 1000 bệnh nhân, vì sợ sai nên ông ta đoán mỗi người 1 đến 3 bệnh rồi trả kết quả cho bác sĩ chuyên môn xem xét tiếp.</li>
-<li>Nhưng trả về quá nhiều thì quá phiền phức, ông bác sĩ đa khoa này vô dụng không giúp được gì (mô hình ML - quy trình AI không tự động hóa được, không khác gì bộ phận thẩm định thủ công ban đầu)</li>
-<li>Vậy như nào là bác sĩ đa khoa giỏi?</li>
-<li>Là với mỗi bệnh nhân, ông bác sĩ chỉ đoán 1 bệnh và trúng phóc luôn, chính xác đến 96.6%. Chấp nhận sai số 3.4%</li>
-<li>Hoặc cân bằng được giữa "số hồ sơ được trả về" và "sai số châp nhận"</li>
+<li>Mô hình giống như 1 ông bác sĩ đa khoa:<ul>
+<li>Muốn đoán đúng bệnh cho cả 1000 bệnh nhân</li>
+<li>Vì sợ sai nên ông ta đoán mỗi người 2 đến 3 bệnh và hứa rằng bệnh thật sẽ nằm trong số đó</li>
+<li>Quá nhiều hồ sơ phải chuyển tiếp cho bác sĩ chuyên môn khác</li>
 </ul>
 </li>
-<li><strong>THÔNG TIN PHỤ</strong><ul>
-<li>Tại sao có những dòng mà Width &lt; 1?</li>
+<li>Trả về quá nhiều thì quá phiền phức, ông bác sĩ đa khoa này "vô dụng" không giúp được gì (mô hình ML - quy trình AI không tự động hóa được, không khác gì bộ phận thẩm định thủ công ban đầu)</li>
+<li>Vậy như nào là bác sĩ đa khoa giỏi?<ul>
+<li>Là với mỗi bệnh nhân, chỉ đoán 1 bệnh và trúng phóc luôn, chính xác đến 96.6%. Chấp nhận sai số 3.4%</li>
+<li>Hoặc cân bằng được giữa "số hồ sơ được trả về" và "sai số chấp nhận"</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>THẮC MẮC PHỤ</strong><ul>
+<li>Tại sao có những dòng mà Width &lt; 1?<ul>
 <li>Đây là những trường hợp nới lỏng quá, độ tin cậy thấp; mô hình thu hẹp khoảng upper lower, không dự đoán nhãn nào cả</li>
-<li>Trả về set rỗng (), set size = 0</li>
-<li>Tuy nhiên, tài liệu này chưa đề cập tới phần tính thủ công hộp đen đó nên tạm hiểu rằng:</li>
-<li>Đây là những trường hợp "vứt đi", không cần quan tâm</li>
-<li>Chỉ cần quan tâm những alpha &amp; độ tin cậy này có Width &gt;= 1</li>
+<li>Trả về pred set rỗng (), set size = 0</li>
+<li>Hãy thử với alpha lớn để xem bảng pred set ở trên output như thế nào</li>
+</ul>
+</li>
+<li>Tuy nhiên, notebook này chưa đề cập tới cách tính thủ công hộp đen đó nên tạm hiểu rằng:<ul>
+<li>Không cần quan tâm, đây là những trường hợp "vứt đi", vừa coverage thấp, vừa phải trả về nhiều hồ sơ</li>
+<li>Chỉ cần quan tâm rằng: những trường hợp có Width &gt;= 1 là có thể áp dụng được thực tế</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -10719,23 +10725,25 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <hr/>
 <h2 id="3.3:-K%E1%BA%BET-LU%E1%BA%ACN-NG%E1%BA%AEN-G%E1%BB%8CN-D%E1%BB%84-HI%E1%BB%82U"><strong>3.3: KẾT LUẬN NGẮN GỌN DỄ HIỂU</strong><a class="anchor-link" href="#3.3:-K%E1%BA%BET-LU%E1%BA%ACN-NG%E1%BA%AEN-G%E1%BB%8CN-D%E1%BB%84-HI%E1%BB%82U">¶</a></h2><ul>
 <li><strong>MÔ HÌNH MAPIE ĐÃ KIỂM TRA ĐỘ TIN CẬY CỦA MÔ HÌNH XGB LÕI VÀ KHẲNG ĐỊNH RẰNG:</strong><ul>
-<li>"Nếu muốn hệ thống tự động hóa hoàn toàn (chỉ trả về 1 nhãn) thì mô hình đảm bảo độ tin cậy/độ bao phủ/độ chính xác lên đến 96% các trường hợp"</li>
-<li>"Hãy cân nhắc giữa độ tin cậy mong muốn và số lượng hồ sơ phải trả về xét duyệt, mô hình sẽ trả về một cách linh hoạt những thằng mà mô hình phân vân/không chắc chắn"</li>
-<li>"Ví dụ: Nếu muốn độ tin cậy 99%, mô hình sẽ in ra được Pred Set bao gồm 92% trường hợp chỉ trả về đúng 1 nhãn; 8% trường hợp trả hồ sơ gồm 2 nhãn để xem xét. Và trong 100% này có thế có 1% sai số nào ở đâu đó không biết được mà ta phải chấp nhận"</li>
+<li>"Nếu muốn hệ thống tự động hóa hoàn toàn (chỉ trả về 1 nhãn) thì mô hình đảm bảo <strong>độ tin cậy/độ bao phủ/độ chính xác</strong> lên đến 96.6% các trường hợp"</li>
+<li>"Hãy cân nhắc giữa độ tin cậy mong muốn và số lượng hồ sơ phải xét duyệt, mô hình sẽ trả về một cách linh hoạt những trường hợp mà mô hình phân vân/không chắc chắn"</li>
+<li>"Nếu muốn độ tin cậy 99%, mô hình sẽ in ra được Pred Set bao gồm 92% trường hợp chỉ trả về đúng 1 nhãn; 8% trường hợp trả hồ sơ gồm 2 nhãn cần con người xem xét. Và trong 100% này có thế có 1% sai số nào ở đâu đó không biết được mà ta phải chấp nhận"</li>
 </ul>
 </li>
-<li><strong>PIPELINE CODE</strong><ul>
+<li><strong>TỔNG KẾT PIPELINE</strong><ul>
 <li>Notebook trình bày trực quan để hiểu ý tưởng chứ không hướng dẫn code</li>
-<li>Chỉ cần nhớ các bước chính + ChatGPT/Claude/etcetc :"3<ul>
-<li>Chia 3 tập train/cal/test</li>
-<li>Train lõi</li>
-<li>Test chỉ số như mọi khi, chọn best model làm lõi</li>
-<li>Mapie kiểm tra độ tin cậy của best model đó<ul>
-<li>Cal fit mapie</li>
-<li>Setting alpha đơn</li>
+<li>Chỉ cần nhớ các bước chính + tự thực hành ChatGPT/Claude/etcetc :"3<ul>
+<li><strong>Split</strong> 3 tập train/cal/test</li>
+<li><strong>Train</strong> lõi</li>
+<li><strong>Test</strong> chỉ số, chọn best model làm lõi</li>
+<li><strong>Mapie</strong> kiểm tra độ tin cậy của best model đó<ul>
+<li><strong>Cal fit mapie</strong></li>
+<li>Setting alpha single<ul>
 <li>In ra df gồm Predset và Proba và y test kiểm tra</li>
 <li>Thử nghiệm thay alpha xem output thay đổi như nào</li>
-<li>Setting alpha grid</li>
+</ul>
+</li>
+<li>Setting alpha grid<ul>
 <li>In ra df gồm Coverage và Width tại mọi alpha</li>
 <li>Chọn alpha &amp; độ tin cậy phù hợp chính sách mong muốn</li>
 </ul>
@@ -10744,8 +10752,10 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </li>
 </ul>
 </li>
+</ul>
+</li>
 <li><strong>FAQ</strong><ul>
-<li>Vô hạn, khuyến cáo GPT vừa tự code dự án tương tự, vừa dễ hỏi ý nghĩa code chunk tương ứng :"3</li>
+<li>Vô hạn, khuyến cáo GPT vừa tự code dự án tương tự, vừa dễ hỏi những thắc mắc liên quan tới phần đó :"3</li>
 </ul>
 </li>
 </ul>
