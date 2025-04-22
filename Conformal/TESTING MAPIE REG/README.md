@@ -15,12 +15,16 @@
 - ### Test 7.1: Clean code to apply more core model like XGB
 - ### Test 7.2: Apply XGB >>> Better 
 
+<br>
+
 # Final
 - ### Test 7.3: Apply best model can find = Catboost >>> Best
 
-# Conclusion:
-- ### Plus is best for KPI Scenario Application
-    - ### CQR is limited to quantile 4 model
-    - ### Naive is can't sendback suspicious prediction
-    - ### Plus can fit all model and have highest coverage if width is limited to acceptabl
+<br>
+
+# BIG Conclusion:
+- ### Plus is best FOR this specific "Mapie Reg Application in KPI Scenario"
+    - ### CQR is limited to "quantile" model (like LGBM, HGBR)
+    - ### Naive can't sendback suspicious prediction
+    - ### BUT Plus can fit all model and even have highest coverage of all 3 strat if width is limited to acceptable
 - ### Core model: The more precise the core model (R2, mae, rmse), the better the coverage of mapie reg (more % "sure" coverage, less % wrong)
